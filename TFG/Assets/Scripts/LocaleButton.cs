@@ -9,21 +9,6 @@ public class LocaleButton : MonoBehaviour
     private int selected = 0;
     private int totalLocales = 0;
 
-    public Sprite AE;
-    public Sprite GB;
-    public Sprite EEUU;
-    public Button bttn;
-
-    void changeImage (int _selected)
-    {
-        if (selected == 0)
-            bttn.image.sprite = EEUU;
-        else if (selected == 1)
-            bttn.image.sprite = GB;
-        else
-            bttn.image.sprite = AE;
-    }
-
     IEnumerator Start()
     {
         // Wait for the localization system to initialize, loading Locales, preloading etc.
@@ -37,8 +22,6 @@ public class LocaleButton : MonoBehaviour
             if (LocalizationSettings.SelectedLocale == locale)
                 selected = i;        
         }
-
-        changeImage(selected);
     }
 
     // Start is called before the first frame update
@@ -54,8 +37,5 @@ public class LocaleButton : MonoBehaviour
             selected = 0;
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[selected];
         }
-
-        changeImage(selected);
-
     }
 }

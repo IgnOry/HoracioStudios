@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 1004943183}
   - component: {fileID: 1004943182}
   - component: {fileID: 1004943181}
+  - component: {fileID: 1004943185}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -358,10 +359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a07b73964b26142ae0a8458f9aa6f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AE: {fileID: 21300000, guid: 717978563765d2a4cb117dbb71ad1406, type: 3}
-  GB: {fileID: 21300000, guid: 6b2bacc5367b4814d95a87769c4eaa16, type: 3}
-  EEUU: {fileID: 21300000, guid: 4b91ad99dd93e4e488acaf7c266bcdee, type: 3}
-  bttn: {fileID: 1004943182}
 --- !u!114 &1004943182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,6 +452,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004943179}
   m_CullTransparentMesh: 0
+--- !u!114 &1004943185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004943179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LocalizedAssetReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:5f1dc0b3bcfe2604f9ab4039e26cf442
+    m_TableEntryReference:
+      m_KeyId: 10867847168
+      m_Key: 
+  m_UpdateAsset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1004943183}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1091507548
 GameObject:
   m_ObjectHideFlags: 0
