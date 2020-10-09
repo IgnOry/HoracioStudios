@@ -30,5 +30,5 @@ public class gunRotation : MonoBehaviour
     }
 
     //this way we can get the direction of aim to shoot
-    Vector3 getGunDir() { return gunDir; }
+    public Vector3 getGunDir() { return gunDir; }
 }
