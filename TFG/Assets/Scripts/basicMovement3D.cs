@@ -5,27 +5,28 @@ using UnityEngine;
 public class basicMovement3D : MonoBehaviour
 {
     public float speed;                //Floating point variable to store the player's movement speed.
-    public float jump;                //Floating point variable to store the player's movement speed.
-
+    /*
+    public float jump;
     public float groundDetectHeight;
     [SerializeField] private LayerMask groundLayer;
+    */
 
     private Rigidbody rb;        //Store a reference to the Rigidbody2D component required to use 2D Physics.
-    private BoxCollider col;        //Store a reference to the Rigidbody2D component required to use 2D Physics.
+    //private BoxCollider col;        //Store a reference to the Rigidbody2D component required to use 2D Physics.
 
     // Start is called before the first frame update
     void Start()
     {
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         rb = GetComponent<Rigidbody>();
-        col = GetComponent<BoxCollider>();
+        //col = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
-        Jump();
+        //Jump();
     }
 
     void Move()
@@ -44,6 +45,7 @@ public class basicMovement3D : MonoBehaviour
         rb.velocity = movement;
     }
 
+    /*
     void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
@@ -60,4 +62,5 @@ public class basicMovement3D : MonoBehaviour
 
         return check;
     }
+    */
 }
