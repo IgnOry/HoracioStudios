@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class basicMovement3D : MonoBehaviour
 {
+    public gunRotation _gun;
+    public Animator _animator;
+    public SpriteRenderer _sprite;
     public float speed;                //Floating point variable to store the player's movement speed.
     /*
     public float jump;
@@ -35,6 +38,11 @@ public class basicMovement3D : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal") * speed;
         float moveZ = Input.GetAxis("Vertical") * speed;
 
+        _animator.SetBool("moving", moveX != 0f || moveZ != 0f);
+        if (_gun.getGunDir().x < 0)
+            _sprite.flipX = true;
+        else if(_gun.getGunDir().x > 0)
+            _sprite.flipX = false;
         //Store the current vertical input in the float moveVertical.
         float moveY = rb.velocity.y;
 
