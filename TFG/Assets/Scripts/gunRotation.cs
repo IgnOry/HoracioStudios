@@ -19,13 +19,18 @@ public class gunRotation : MonoBehaviour
     {
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 dir = Input.mousePosition - pos;
+
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        //this way it's always parallel to the ground
+        transform.localEulerAngles = new Vector3(transform.parent.transform.eulerAngles.x / 2.0f, transform.localEulerAngles.y, transform.localEulerAngles.z);
 
         gunDir = dir.normalized;
         gunDir.z = gunDir.y;
         gunDir.y = 0;
         _sprite.flipY = gunDir.x < 0;
+
         //Debug.DrawLine(transform.position, transform.position + gunDir, Color.green);
         //Debug.Log(gunDir);
     }
