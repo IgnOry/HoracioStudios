@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ATeam
   - BTeam
+  - Wall
+  - Bullet
   layers:
   - Default
   - TransparentFX

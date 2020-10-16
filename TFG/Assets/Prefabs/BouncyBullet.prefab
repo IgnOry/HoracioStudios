@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 4218243328106686302}
   - component: {fileID: 6165899050451196015}
   - component: {fileID: -6665734426103491386}
+  - component: {fileID: -3686823712408046761}
+  - component: {fileID: -7977854296229981531}
   m_Layer: 0
-  m_Name: Bullet
-  m_TagString: Untagged
+  m_Name: BouncyBullet
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,3 +114,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &-3686823712408046761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6973828575507153277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d845783ec0c44ad41a15cac049c64726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 1
+  time_: 5
+--- !u!114 &-7977854296229981531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6973828575507153277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ab07507c34a38408f00b4c4e5fcdf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 1
