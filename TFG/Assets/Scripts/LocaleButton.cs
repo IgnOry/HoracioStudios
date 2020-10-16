@@ -27,6 +27,9 @@ public class LocaleButton : MonoBehaviour
     // Start is called before the first frame update
     public void changeLocale()
     {
+
+        Debug.Log(selected);
+
         if (selected < totalLocales - 1)
         {
             selected++;

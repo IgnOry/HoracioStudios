@@ -6,7 +6,8 @@ public class gunRotation : MonoBehaviour
 {
 
     private Vector3 gunDir;
-    
+    public SpriteRenderer _sprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public class gunRotation : MonoBehaviour
         gunDir = dir.normalized;
         gunDir.z = gunDir.y;
         gunDir.y = 0;
-
+        _sprite.flipY = gunDir.x < 0;
         //Debug.DrawLine(transform.position, transform.position + gunDir, Color.green);
         //Debug.Log(gunDir);
     }
