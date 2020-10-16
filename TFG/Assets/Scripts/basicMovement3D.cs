@@ -39,6 +39,7 @@ public class basicMovement3D : MonoBehaviour
         float moveZ = Input.GetAxis("Vertical") * speed;
 
         _animator.SetBool("moving", moveX != 0f || moveZ != 0f);
+
         if (_gun.getGunDir().x < 0)
             _sprite.flipX = true;
         else if(_gun.getGunDir().x > 0)
@@ -46,6 +47,7 @@ public class basicMovement3D : MonoBehaviour
         //Store the current vertical input in the float moveVertical.
         float moveY = rb.velocity.y;
 
+        _animator.SetBool("backwards", (moveX > 0f &&  _sprite.flipX) || (moveX < 0f && !_sprite.flipX));
         //Use the two store floats to create a new Vector2 variable movement.
         Vector3 movement = new Vector3(moveX, moveY, moveZ);
 
