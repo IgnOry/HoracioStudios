@@ -27,7 +27,7 @@ public class normalShoot : MonoBehaviour
 
     void Update()
     {
-        if (time_ <= 0f && actualBullets_ > 0 && Input.GetMouseButton(0))
+        if (time_ <= 0f && actualBullets_ > 0 && (Input.GetAxis("Fire") != 0 || Input.GetAxis("Fire_Joy") != 0))
         {
             Shoot();
             cam.startShaking();

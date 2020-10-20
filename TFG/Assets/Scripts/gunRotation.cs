@@ -8,17 +8,47 @@ public class gunRotation : MonoBehaviour
     private Vector3 gunDir;
     public SpriteRenderer _sprite;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    private GameManager gm;
 
+    private void Start()
+    {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        if (!controllerAim() && (gm == null || !gm.isControllerMode))
+        {
+            mouseAim();
+        }
+    }
+
+    public void mouseAim()
     {
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 dir = Input.mousePosition - pos;
+
+        manageDir(dir);
+    }
+
+    public bool controllerAim()
+    {
+        bool ret = false;
+
+        if (Input.GetAxis("Aim_X") != 0 || Input.GetAxis("Aim_Y") != 0)
+        {
+            ret = true;
+            
+            Vector2 dir = new Vector2(Input.GetAxis("Aim_X"), Input.GetAxis("Aim_Y"));
+
+            manageDir(dir);
+        }
+
+        return ret;
+    }
+
+    public void manageDir(Vector3 dir)
+    {
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
