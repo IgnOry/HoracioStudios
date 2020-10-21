@@ -15,7 +15,9 @@ public class basicMovement3D : MonoBehaviour
     */
 
     private Rigidbody rb;        //Store a reference to the Rigidbody2D component required to use 2D Physics.
-    //private BoxCollider col;        //Store a reference to the Rigidbody2D component required to use 2D Physics.
+    //private BoxCollider col;        //Store a reference to the Rigidbody2D component required to use 2D Physics.    
+
+    public GameManager gm;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,8 @@ public class basicMovement3D : MonoBehaviour
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         rb = GetComponent<Rigidbody>();
         //col = GetComponent<BoxCollider>();
+
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -34,9 +38,21 @@ public class basicMovement3D : MonoBehaviour
 
     void Move()
     {
-        //Store the current horizontal input in the float moveHorizontal.
-        float moveX = Input.GetAxis("Horizontal") * speed;
-        float moveZ = Input.GetAxis("Vertical") * speed;
+        float moveX = 0.0f;
+        float moveZ = 0.0f;
+
+        if (!gm.isControllerMode)
+        {
+            //Store the current horizontal input in the float moveHorizontal.
+            moveX = Input.GetAxis("Horizontal") * speed;
+            moveZ = Input.GetAxis("Vertical") * speed;
+        }
+        else
+        {
+            //Store the current horizontal input in the float moveHorizontal.
+            moveX = Input.GetAxis("Horizontal_Joy") * speed;
+            moveZ = Input.GetAxis("Vertical_Joy") * speed;
+        }
 
         _animator.SetBool("moving", moveX != 0f || moveZ != 0f);
 
@@ -45,6 +61,7 @@ public class basicMovement3D : MonoBehaviour
         else if(_gun.getGunDir().x > 0)
             _sprite.flipX = false;
         //Store the current vertical input in the float moveVertical.
+
         float moveY = rb.velocity.y;
 
         _animator.SetBool("backwards", (moveX > 0f &&  _sprite.flipX) || (moveX <= 0f && !_sprite.flipX));

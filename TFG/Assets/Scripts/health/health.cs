@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class health : MonoBehaviour
 {
-
-    public float hp;
+    public float maxHealth;
+    public float currentHealth;
 
     public void takeDamage(float dmg)
     {
-        hp -= dmg;
-        if (hp < 0)
+        currentHealth -= dmg;
+        if (currentHealth < 0)
             Destroy(gameObject);
     }
 }
