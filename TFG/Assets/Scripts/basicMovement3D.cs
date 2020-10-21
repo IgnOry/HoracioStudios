@@ -17,7 +17,7 @@ public class basicMovement3D : MonoBehaviour
     private Rigidbody rb;        //Store a reference to the Rigidbody2D component required to use 2D Physics.
     //private BoxCollider col;        //Store a reference to the Rigidbody2D component required to use 2D Physics.    
 
-    public GameManager gm;
+    public GameManager gm = null;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,10 @@ public class basicMovement3D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //sometimes gamemanager doesn't get picked up during Start
+        if (gm == null)
+            gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         Move();
         //Jump();
     }
@@ -41,17 +45,21 @@ public class basicMovement3D : MonoBehaviour
         float moveX = 0.0f;
         float moveZ = 0.0f;
 
-        if (!gm.isControllerMode)
+        if (gm != null)
         {
-            //Store the current horizontal input in the float moveHorizontal.
-            moveX = Input.GetAxis("Horizontal") * speed;
-            moveZ = Input.GetAxis("Vertical") * speed;
-        }
-        else
-        {
-            //Store the current horizontal input in the float moveHorizontal.
-            moveX = Input.GetAxis("Horizontal_Joy") * speed;
-            moveZ = Input.GetAxis("Vertical_Joy") * speed;
+
+            if (!gm.isControllerMode)
+            {
+                //Store the current horizontal input in the float moveHorizontal.
+                moveX = Input.GetAxis("Horizontal") * speed;
+                moveZ = Input.GetAxis("Vertical") * speed;
+            }
+            else
+            {
+                //Store the current horizontal input in the float moveHorizontal.
+                moveX = Input.GetAxis("Horizontal_Joy") * speed;
+                moveZ = Input.GetAxis("Vertical_Joy") * speed;
+            }
         }
 
         _animator.SetBool("moving", moveX != 0f || moveZ != 0f);

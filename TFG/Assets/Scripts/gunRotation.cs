@@ -8,7 +8,7 @@ public class gunRotation : MonoBehaviour
     private Vector3 gunDir;
     public SpriteRenderer _sprite;
 
-    private GameManager gm;
+    private GameManager gm = null;
 
     private void Start()
     {
@@ -17,6 +17,10 @@ public class gunRotation : MonoBehaviour
 
     void Update()
     {
+        //sometimes gamemanager doesn't get picked up during Start
+        if (gm == null)
+            gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         if (!controllerAim() && (gm == null || !gm.isControllerMode))
         {
             mouseAim();

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ControlModeChecker : MonoBehaviour
 {
 
-    private GameManager gm;
+    private GameManager gm = null;
     private Text txt;
 
     private void Start()
@@ -18,9 +18,16 @@ public class ControlModeChecker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gm.isControllerMode)
-            txt.text = "Controller";
-        else
-            txt.text = "Mouse";
+        //sometimes gamemanager doesn't get picked up during Start
+        if (gm == null)
+            gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        if (gm != null)
+        {
+            if (gm.isControllerMode)
+                txt.text = "Controller";
+            else
+                txt.text = "Mouse";
+        }
     }
 }
