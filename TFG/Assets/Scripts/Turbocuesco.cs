@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class Turbocuesco : MonoBehaviour
 {
-    public 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float despawnTime;
+    float actualCD;
+    string damageTag;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (actualCD < despawnTime)
+            actualCD += Time.deltaTime;
+        else
+            Destroy(this.gameObject);
+    }
+    void OnTriggerStay(Collider other)
+    {
+        if(other.tag == damageTag)
+        {
+            other.GetComponent<health>().takeDamage(0.1f);
+        }
+    }
+    public void setTag(string tag)
+    {
+        damageTag = tag == "ATeam" ? "BTeam" : "ATeam";
     }
 }

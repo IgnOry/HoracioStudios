@@ -1828,6 +1828,10 @@ PrefabInstance:
       propertyPath: currentHealth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5795021258234978553, guid: 405845c50319fa94aab8cfb4914b7026, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 405845c50319fa94aab8cfb4914b7026, type: 3}
 --- !u!1 &541021955
@@ -2456,6 +2460,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4184805931374251312, guid: 405845c50319fa94aab8cfb4914b7026, type: 3}
   m_PrefabInstance: {fileID: 500896421}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &786899205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786899204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c371f1a9741eec4885f1f5ed2d9cffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cuesco: {fileID: 5475335976547347050, guid: 7fc3cd5199e69224783d0ea014b055f0, type: 3}
 --- !u!4 &786899209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4886360236588836946, guid: 405845c50319fa94aab8cfb4914b7026, type: 3}
