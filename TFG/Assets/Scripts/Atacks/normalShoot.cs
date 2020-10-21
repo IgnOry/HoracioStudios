@@ -47,7 +47,7 @@ public class normalShoot : MonoBehaviour
     //This is a virtual method and will be different for each character
     protected virtual void Shoot()
     {
-        GameObject obj = Instantiate(shot, spawn.position, Quaternion.identity);
+        GameObject obj = Instantiate(shot, spawn.position, transform.rotation);
         obj.GetComponent<Rigidbody>().velocity = gunRot.getGunDir() * speed;
         obj.layer = gameObject.layer;
         actualBullets_--;
