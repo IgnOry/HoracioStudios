@@ -19,8 +19,8 @@ public class AbilityChuerk : MonoBehaviour
     {
         if (gas < 0.0f)
             gas = 0.0f;
-        GetComponent<basicMovement3D>().speed = Input.GetKey(KeyCode.Return) && gas > 0.0f ? 8f : 5f;
-        if (Input.GetKey(KeyCode.Return))
+        GetComponent<basicMovement3D>().speed = Input.GetMouseButton(1) && gas > 0.0f ? 8f : 5f;
+        if (Input.GetMouseButton(1))
         {
             gas -= Time.deltaTime;
             actualCD += Time.deltaTime;
