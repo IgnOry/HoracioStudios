@@ -8,7 +8,7 @@ public class normalShoot : MonoBehaviour
     private float time_ = 0f;
 
     protected gunRotation gunRot;
-    protected int actualBullets_;
+    public int actualBullets_;
 
     public feedBackCam cam;
     public Transform spawn;
