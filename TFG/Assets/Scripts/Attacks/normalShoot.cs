@@ -8,7 +8,7 @@ public class normalShoot : MonoBehaviour
     private float time_ = 0f;
 
     protected gunRotation gunRot;
-    public int actualBullets_;
+    public int actualBullets;
 
     public feedBackCam cam;
     public Transform spawn;
@@ -16,24 +16,24 @@ public class normalShoot : MonoBehaviour
     public float speed = 1f;
     public float cadence = 1f;
     public float reloadTime = 1f; //Time it takes to reload
-    public int numBullets = 1;
+    public int maxBullets = 1;
     //public float bulletTTL = 1f; //Time bullets live
 
     protected virtual void Start()
     {
         gunRot = gameObject.GetComponent<gunRotation>();
-        actualBullets_ = numBullets;
+        actualBullets = maxBullets;
     }
 
     protected virtual void Update()
     {
-        if (time_ <= 0f && actualBullets_ > 0 && (Input.GetAxis("Fire") != 0 || Input.GetAxis("Fire_Joy") != 0))
+        if (time_ <= 0f && actualBullets > 0 && (Input.GetAxis("Fire") != 0 || Input.GetAxis("Fire_Joy") != 0))
         {
             Shoot();
             cam.startShaking();
             time_ = cadence;
         }
-        else if (actualBullets_ <= 0)
+        else if (actualBullets <= 0)
         {
             Reload();
         }
@@ -49,12 +49,12 @@ public class normalShoot : MonoBehaviour
         GameObject obj = Instantiate(shot, spawn.position, transform.rotation);
         obj.GetComponent<Rigidbody>().velocity = gunRot.getGunDir() * speed;
         obj.layer = gameObject.layer;
-        actualBullets_--;
+        actualBullets--;
     }
 
     protected virtual void Reload()
     {
-        actualBullets_ = numBullets;
+        actualBullets = maxBullets;
         time_ = reloadTime;
     }
 
@@ -68,6 +68,16 @@ public class normalShoot : MonoBehaviour
         v.x = (cos * tx) - (sin * ty);
         v.z = (sin * tx) + (cos * ty);
         return v.normalized;
+    }
+
+    public int getCurrentBullets()
+    {
+        return actualBullets;
+    }
+
+    public int getMaxBullets()
+    {
+        return maxBullets;
     }
 
 }

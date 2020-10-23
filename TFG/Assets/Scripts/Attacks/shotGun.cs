@@ -16,7 +16,7 @@ public class shotGun : normalShoot
             obj.GetComponent<Rigidbody>().velocity =  Rotate(gunRot.getGunDir(), (shotAngle_/2.0f) - incr*i) * speed;
             obj.layer = gameObject.layer;
         }
-        actualBullets_-= shotNum_;
+        actualBullets -= shotNum_;
     }
 
 }

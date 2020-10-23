@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Bullet
   - BBShield
+  - MainCanvas
   layers:
   - Default
   - TransparentFX
