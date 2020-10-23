@@ -8,6 +8,10 @@ public class Turbocuesco : MonoBehaviour
     float actualCD;
     string damageTag;
 
+    private void Start()
+    {
+        GetComponent<AudioSource>().Play();
+    }
     private void Update()
     {
         if (actualCD < despawnTime)

@@ -6,7 +6,7 @@ public class AbilityChuerk : MonoBehaviour
 {
     public GameObject cuesco;
     float gas = 0.4f;
-    float cooldown = 0.06f;
+    float cooldown = 0.04f;
     float actualCD = 0.0f;
     // Start is called before the first frame update
     void Start()
