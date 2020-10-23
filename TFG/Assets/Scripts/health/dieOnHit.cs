@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class dieOnHit : timeToLive
 {
+
+    public string[] ignore;
+
     private void OnCollisionEnter(Collision collision)
     {
+        bool col = false;
+        foreach(string i  in ignore)
+        {
+            col = col || collision.gameObject.tag == i;
+        }
+
+        Debug.Log(collision.gameObject.tag);
         //Other bullets cant destroy this bullet
-        if(collision.gameObject.tag == "Bullet")
+        if(col)
         {
             //And ignore the collision with bullets that can collide
             Physics.IgnoreCollision(collision.collider, GetComponent<Collision>().collider);

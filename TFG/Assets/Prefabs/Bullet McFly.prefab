@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6884784521439585466}
   - component: {fileID: -5343823572872456496}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Bullet McFly
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,8 +140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7128367f3ab355b47bd98d949f9db0aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1
+  maxHealth: 0
+  currentHealth: 0
   time_: 1
+  ignore:
+  - Bullet
 --- !u!1 &8778470668678813597
 GameObject:
   m_ObjectHideFlags: 0

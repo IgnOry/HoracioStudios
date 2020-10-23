@@ -19,13 +19,13 @@ public class normalShoot : MonoBehaviour
     public int numBullets = 1;
     //public float bulletTTL = 1f; //Time bullets live
 
-    void Start()
+    protected virtual void Start()
     {
         gunRot = gameObject.GetComponent<gunRotation>();
         actualBullets_ = numBullets;
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (time_ <= 0f && actualBullets_ > 0 && (Input.GetAxis("Fire") != 0 || Input.GetAxis("Fire_Joy") != 0))
         {
@@ -35,8 +35,7 @@ public class normalShoot : MonoBehaviour
         }
         else if (actualBullets_ <= 0)
         {
-            actualBullets_ = numBullets;
-            time_ = reloadTime;
+            Reload();
         }
         else
         {
@@ -52,4 +51,23 @@ public class normalShoot : MonoBehaviour
         obj.layer = gameObject.layer;
         actualBullets_--;
     }
+
+    protected virtual void Reload()
+    {
+        actualBullets_ = numBullets;
+        time_ = reloadTime;
+    }
+
+    protected Vector3 Rotate(Vector3 v, float degrees)
+    {
+        float sin = Mathf.Sin(degrees * Mathf.Deg2Rad);
+        float cos = Mathf.Cos(degrees * Mathf.Deg2Rad);
+
+        float tx = v.x;
+        float ty = v.z;
+        v.x = (cos * tx) - (sin * ty);
+        v.z = (sin * tx) + (cos * ty);
+        return v.normalized;
+    }
+
 }

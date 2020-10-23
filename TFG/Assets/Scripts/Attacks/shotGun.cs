@@ -19,16 +19,4 @@ public class shotGun : normalShoot
         actualBullets_-= shotNum_;
     }
 
-    private Vector3 Rotate(Vector3 v, float degrees)
-    {
-        float sin = Mathf.Sin(degrees * Mathf.Deg2Rad);
-        float cos = Mathf.Cos(degrees * Mathf.Deg2Rad);
-
-        float tx = v.x;
-        float ty = v.z;
-        v.x = (cos * tx) - (sin * ty);
-        v.z = (sin * tx) + (cos * ty);
-        return v.normalized;
-    }
-
 }

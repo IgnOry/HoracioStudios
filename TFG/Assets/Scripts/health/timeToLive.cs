@@ -7,15 +7,8 @@ public class timeToLive : health
 
     public float time_ = 1f;
 
-    void Update()
+    void Start()
     {
-        time_ -= Time.deltaTime;
-        if (time_ <= 0)
-            Destroy(gameObject);
-    }
-
-    public void setTime(float t)
-    {
-        time_ = t;
+        Destroy(gameObject, time_);
     }
 }
