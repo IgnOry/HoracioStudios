@@ -14,13 +14,13 @@ public class ammoBarScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxAmmo = gun.GetComponent<normalShoot>().numBullets;
+        maxAmmo = gun.GetComponent<normalShoot>().getMaxBullets();
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentAmmo = gun.GetComponent<normalShoot>().actualBullets_;
+        currentAmmo = gun.GetComponent<normalShoot>().getCurrentBullets();
 
         fill = currentAmmo / maxAmmo;
 

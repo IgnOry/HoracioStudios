@@ -41,12 +41,12 @@ public class badBabyShoot : normalShoot
         {
             reloading = false;
         }
-        for (int i = 0; i < actualBullets_; i++)
+        for (int i = 0; i < actualBullets; i++)
         {
             GameObject obj = Instantiate(shield, spawn.position, Quaternion.identity);
             obj.transform.SetParent(spawn); //Set the bullets as a child from the spawn point
             obj.transform.localPosition = Vector3.zero;
-            obj.transform.Translate(Rotate(new Vector3(0.0f, 0.0f, 1.0f), 360*((float)i/(float)actualBullets_)).normalized*distShield);
+            obj.transform.Translate(Rotate(new Vector3(0.0f, 0.0f, 1.0f), 360*((float)i/(float)actualBullets)).normalized*distShield);
             obj.layer = gameObject.layer;
         }
     }
@@ -62,9 +62,9 @@ public class badBabyShoot : normalShoot
     //Return the number of bullets you have
     private void checkShield()
     {
-        if (!reloading && actualBullets_ > GameObject.FindGameObjectsWithTag("BBShield").Length)
+        if (!reloading && actualBullets > GameObject.FindGameObjectsWithTag("BBShield").Length)
         {
-            actualBullets_ = GameObject.FindGameObjectsWithTag("BBShield").Length;
+            actualBullets = GameObject.FindGameObjectsWithTag("BBShield").Length;
             resetShield();
             createShield();
         }
@@ -79,7 +79,7 @@ public class badBabyShoot : normalShoot
 
     public void killShield()
     {
-        actualBullets_--;
+        actualBullets--;
         resetShield();
         createShield();
     }
