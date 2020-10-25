@@ -9,6 +9,8 @@ public class badBabyShoot : normalShoot
     public GameObject shield;
     //public GameObject parent;
 
+    private bool reloading = false;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -21,7 +23,8 @@ public class badBabyShoot : normalShoot
     {
         //Rotate the spawn point to rotate the bullets too
         spawn.Rotate(new Vector3(0.0f, 1.0f, 0.0f)*speedRot * Time.deltaTime, Space.World);
-        base.Update();   
+        checkShield(); 
+        base.Update(); //Se esta llamando al reload mazo por algo, miralo anda, que pasan cosas raras
     }
 
     protected override void Shoot()
@@ -34,6 +37,10 @@ public class badBabyShoot : normalShoot
     //Creates the bullets that rotates around the player
     private void createShield()
     {
+        if (reloading)
+        {
+            reloading = false;
+        }
         for (int i = 0; i < actualBullets_; i++)
         {
             GameObject obj = Instantiate(shield, spawn.position, Quaternion.identity);
@@ -53,13 +60,19 @@ public class badBabyShoot : normalShoot
     }
 
     //Return the number of bullets you have
-    private int checkShield()
+    private void checkShield()
     {
-        return GameObject.FindGameObjectsWithTag("BBShield").Length;
+        if (!reloading && actualBullets_ > GameObject.FindGameObjectsWithTag("BBShield").Length)
+        {
+            actualBullets_ = GameObject.FindGameObjectsWithTag("BBShield").Length;
+            resetShield();
+            createShield();
+        }
     }
 
     protected override void Reload()
     {
+        reloading = true;
         base.Reload();
         Invoke("createShield", reloadTime);
     }

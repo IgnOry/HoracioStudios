@@ -12,7 +12,7 @@ public class shotGun : normalShoot
         float incr = shotAngle_ / shotNum_;
 
         for(int i = 0; i < shotNum_; i++) {
-            GameObject obj = Instantiate(shot, spawn.position, Quaternion.identity);
+            GameObject obj = Instantiate(shot, spawn.position, transform.rotation);
             obj.GetComponent<Rigidbody>().velocity =  Rotate(gunRot.getGunDir(), (shotAngle_/2.0f) - incr*i) * speed;
             obj.layer = gameObject.layer;
         }
