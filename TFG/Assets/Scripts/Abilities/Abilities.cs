@@ -19,7 +19,7 @@ public class Abilities : MonoBehaviour
     {
         if(abilityUp && Input.GetMouseButton(1))
         {
-            ShowAbility();
+            PrepareAbility();
         }
 
         if(abilityUp && Input.GetMouseButtonUp(1))
@@ -37,7 +37,7 @@ public class Abilities : MonoBehaviour
     }
 
     //Show the ability template
-    protected virtual void ShowAbility()
+    protected virtual void PrepareAbility()
     {
         //Debug.Log("Lo estoy enseñando");
     }
