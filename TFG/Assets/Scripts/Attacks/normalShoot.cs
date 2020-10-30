@@ -6,6 +6,7 @@ public class normalShoot : MonoBehaviour
 {
 
     private float time_ = 0f;
+    private bool block_ = false;
 
     protected gunRotation gunRot;
     public int actualBullets;
@@ -27,7 +28,7 @@ public class normalShoot : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (time_ <= 0f && actualBullets > 0 && (Input.GetAxis("Fire") != 0 || Input.GetAxis("Fire_Joy") != 0))
+        if (!block_ && time_ <= 0f && actualBullets > 0 && (Input.GetAxis("Fire") != 0 || Input.GetAxis("Fire_Joy") != 0))
         {
             Shoot();
             cam.startShaking();
@@ -78,6 +79,11 @@ public class normalShoot : MonoBehaviour
     public int getMaxBullets()
     {
         return maxBullets;
+    }
+
+    public void SetBlockShoot(bool set)
+    {
+        block_ = set;
     }
 
 }
