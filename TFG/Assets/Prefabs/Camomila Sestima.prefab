@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4690574614255158227}
   - component: {fileID: 6709045387674635923}
   m_Layer: 9
-  m_Name: player_temp3D 1
+  m_Name: Camomila Sestima
   m_TagString: ATeam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,6 +82,7 @@ MonoBehaviour:
   _animator: {fileID: 6709045387450715791}
   _sprite: {fileID: 7861495477650132990}
   speed: 10
+  gm: {fileID: 0}
 --- !u!114 &6709045387674635923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa654ac8ec1bfd847b8488932133adee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 2
+  maxHealth: 0
+  currentHealth: 0
 --- !u!1 &6709045386193296580
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +200,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 17f1b471d66e6dc4e85ead92476bede5, type: 3}
+  m_Sprite: {fileID: -5133510631695495989, guid: bda94ae06617ca44bb62f582ab6569d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -219,7 +221,7 @@ Animator:
   m_GameObject: {fileID: 7861495477650132928}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b504363a75dd2fa4481b93679f7b355c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4819518f7d7d8814c9814bddfb415102, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -384,13 +386,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e10f29025ca824448b62f96867dff2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actualBullets: 0
   cam: {fileID: 6709045387790949885}
   spawn: {fileID: 6709045386193296587}
   shot: {fileID: 8306123816286157484, guid: 25f13c8583089b14f9dc99b1b166c948, type: 3}
   speed: 10
   cadence: 0.2
   reloadTime: 2
-  numBullets: 10
+  maxBullets: 1
 --- !u!114 &6709045387531293561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,13 +406,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8237cfc121631d943ab1b8ea62e9864b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actualBullets: 0
   cam: {fileID: 6709045387790949885}
   spawn: {fileID: 6709045386193296587}
   shot: {fileID: 6973828575507153277, guid: cfb36415c1e461b4e84552921aeacc50, type: 3}
   speed: 10
   cadence: 0.5
   reloadTime: 2
-  numBullets: 45
+  maxBullets: 1
   shotAngle_: 360
   shotNum_: 10
 --- !u!1 &7861495478653165091

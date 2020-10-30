@@ -284,13 +284,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b0cc270d36d3a8459b875cb6946d16c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actualBullets: 0
   cam: {fileID: 4797550908680252225}
   spawn: {fileID: 4797550910244645495}
   shot: {fileID: 6645397039167032936, guid: d871655d759488e4e956434db0136df6, type: 3}
   speed: 10
   cadence: 1
   reloadTime: 2
-  numBullets: 5
+  maxBullets: 1
   distShield: 1.5
   speedRot: 10
   shield: {fileID: 5966256732893946591, guid: 1e04ff101eecffb4eb2dc4b743c86a0b, type: 3}
@@ -367,7 +368,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 17f1b471d66e6dc4e85ead92476bede5, type: 3}
+  m_Sprite: {fileID: 3677740660711496394, guid: a522d90ae98bc054e80dc6c6bc113be2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -388,7 +389,7 @@ Animator:
   m_GameObject: {fileID: 8256969923080796540}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b504363a75dd2fa4481b93679f7b355c, type: 2}
+  m_Controller: {fileID: 9100000, guid: dc8a53640af543b46ab57cbac2292e01, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

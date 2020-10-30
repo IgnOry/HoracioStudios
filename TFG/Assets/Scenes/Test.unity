@@ -1788,6 +1788,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4636929409834959412, guid: bfbadc59c750ec04ebf871826f35ee6e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b99b85ed05df03b4483eb3bb9492906b, type: 3}
     - target: {fileID: 8096165896763638617, guid: bfbadc59c750ec04ebf871826f35ee6e, type: 3}
       propertyPath: maxHealth
       value: 10
@@ -1796,6 +1800,10 @@ PrefabInstance:
       propertyPath: currentHealth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8096165896937161541, guid: bfbadc59c750ec04ebf871826f35ee6e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5eca0c5294adf0340b15aa190efa856d, type: 2}
     - target: {fileID: 9222129155843933874, guid: bfbadc59c750ec04ebf871826f35ee6e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.3490624
@@ -6215,6 +6223,7 @@ MonoBehaviour:
   coolDown: 4
   molotov: {fileID: 5329975276878110526, guid: 3124c2a0c4c83ca4186d743d6cc631c8, type: 3}
   speed: 10
+  distance: 0
 --- !u!1 &2062797083
 GameObject:
   m_ObjectHideFlags: 0
