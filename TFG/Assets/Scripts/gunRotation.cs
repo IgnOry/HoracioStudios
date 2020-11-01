@@ -53,7 +53,6 @@ public class gunRotation : MonoBehaviour
 
     public void manageDir(Vector3 dir)
     {
-
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
 

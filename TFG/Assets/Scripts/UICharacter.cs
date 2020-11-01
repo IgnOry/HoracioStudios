@@ -42,6 +42,7 @@ public class UICharacter : MonoBehaviour
     {
 
         //Actualizacion de posicion
+        //Habra que buscar manera de que no dependa de la cámara para que no se líe con 2
         Vector3 pos0 = Camera.main.WorldToScreenPoint(this.transform.position);
         Vector3 pos1 = Camera.main.WorldToScreenPoint(new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z - 0.5f));
         healthBar.transform.position = pos0;

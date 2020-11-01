@@ -1,56 +1,104 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilityMolotov : Abilities
+public class AbilityMolotov : MonoBehaviour
 {
     public GameObject molotov;
-    public float speed;
+    public GameObject targetM;
     public float distance = 0;
-    //Override this method
-    override protected void UseAbility()
+    public float coolDown;
+
+    Vector2 mPos;
+    Vector2 gPos;
+
+    private bool abilityUp = true;
+    private bool preparing_ = false;
+
+    private GameObject target;
+
+    // Update is called once per frame
+    void Update()
     {
-        //Instanciar molotov
+        if (abilityUp && Input.GetMouseButton(1))
+        {
+            PrepareAbility();
+            preparing_ = true;
+        }
+
+        if (preparing_ && Input.GetMouseButtonUp(1))
+        {
+            UseAbility();
+            abilityUp = false;
+            preparing_ = false;
+            Invoke("SetAbilityUp", coolDown); //Puede que se necesite el timer para dar el porcentaje
+        }
+    }
+
+    protected void UseAbility()
+    {
         GameObject gun = gameObject.GetComponentInChildren<gunRotation>().gameObject;
+
         GameObject obj = Instantiate(molotov, gun.transform.position, transform.rotation);
-
-        Vector3 vel = gun.GetComponent<gunRotation>().getGunDir() * speed;
-        vel.y = distance;
-
-        obj.GetComponent<Rigidbody>().velocity = vel;
+        obj.layer = gameObject.layer;
+        obj.GetComponent<Rigidbody>().velocity = new Vector3(mPos.x, gameObject.transform.position.y+5, mPos.y) - obj.transform.position;
         Debug.Log(obj.GetComponent<Rigidbody>().velocity);
-        obj.layer = gameObject.layer;        
-        //En direccion a donde apunta el arma
-        base.UseAbility();
-        distance = 0;
+
+        Destroy(target);
+    }
+
+    protected void SetAbilityUp()
+    {
+        abilityUp = true;
     }
 
     //Show the ability template
-    override protected void PrepareAbility()
+    protected void PrepareAbility()
     {
-        //base.PrepareAbility();
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Input.GetMouseButton(1))
+        var layerMask = 1 << LayerMask.NameToLayer("Ground"); // No se si vale para algo
+
+        if (Physics.Raycast(ray, out hit, 100, layerMask)) //Los dos ultimos parámetros son para solo pillar Ground como capa, 100 arbitrario
         {
-            if (distance < 2f)
-            distance += 0.005f;
-        }
+            Transform objectHit = hit.transform;
 
-    }
+            gPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.z);
+            mPos = new Vector2(hit.point.x, hit.point.z);
 
-    /*override*/ void Update()
-    {
-        if (Input.GetMouseButton(1))
-        {
-            PrepareAbility();
-            //preparing_ = true;
-        }
+            if (Vector2.Distance(gPos, mPos) < distance)
+            {
 
-        if (Input.GetMouseButtonUp(1))
-        {
-            UseAbility();
+                if (target != null)
+                {
+                    target.transform.position = new Vector3(mPos.x, gameObject.transform.position.y, mPos.y);
+                }
 
-            Invoke("SetAbilityUp", coolDown); //Puede que se necesite el timer para dar el porcentaje
+                else
+                {
+                    target = Instantiate(targetM, new Vector3(mPos.x, gameObject.transform.position.y, mPos.y), new Quaternion(0, 0, 0, 0));
+                    target.transform.Rotate(new Vector3(90, 0, 0));
+                }
+            }
+            else //Falla un poco
+            {
+                Vector3 diff = mPos - gPos;
+                float dist = diff.magnitude;
+                if (target == null)
+                {
+                    target = Instantiate(targetM);
+                    target.transform.position = new Vector3(gPos.x, gameObject.transform.position.y, gPos.y) + diff.normalized * distance;
+                    target.transform.Rotate(new Vector3(90, 0, 0));
+                }
+
+                else
+                {
+                    target.transform.position = new Vector3(gPos.x, gameObject.transform.position.y, gPos.y) + diff.normalized * distance;
+                    mPos = new Vector2(target.transform.position.x, target.transform.position.z);
+                }
+            }
         }
     }
 }
