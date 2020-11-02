@@ -5,13 +5,8 @@ using UnityEngine.UI;
 
 public class UICharacter : MonoBehaviour
 {
-    public GameObject UI_Prefab;
-
-    public GameObject healthBar;
-    public GameObject ammoBar;
-
-    public Image HealthBar;
-    public Image AmmoBar;
+    public GameObject HealthBar;
+    public GameObject AmmoBar;
 
     float currentHealth;
     float maxHealth;
@@ -24,13 +19,8 @@ public class UICharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Canvas canvas = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<Canvas>();
-        GameObject auxUI = Instantiate(UI_Prefab, canvas.transform);
-        healthBar = auxUI.transform.GetChild(0).gameObject;
-        ammoBar = auxUI.transform.GetChild(1).gameObject;
-
-        HealthBar = auxUI.transform.GetChild(0).GetChild(0).GetComponent<Image>();
-        AmmoBar = auxUI.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+        HealthBar = gameObject.transform.GetChild(0).GetChild(0).gameObject;
+        AmmoBar = gameObject.transform.GetChild(1).GetChild(0).gameObject;
 
         maxHealth = gameObject.transform.parent.GetComponent<health>().maxHealth;
         //Para que sea automatico hace falta uno estandar
@@ -40,13 +30,6 @@ public class UICharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //Actualizacion de posicion
-        //Habra que buscar manera de que no dependa de la cámara para que no se líe con 2
-        Vector3 pos0 = Camera.main.WorldToScreenPoint(this.transform.position);
-        Vector3 pos1 = Camera.main.WorldToScreenPoint(new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z - 0.5f));
-        healthBar.transform.position = pos0;
-        ammoBar.transform.position = pos1;
 
         //Actualizacion de valores
         currentHealth = gameObject.transform.parent.GetComponent<health>().getCurrentHealth();
@@ -58,23 +41,27 @@ public class UICharacter : MonoBehaviour
 
         //Actualización de barras
         changeColorHealth(fillHealth);
-        HealthBar.fillAmount = fillHealth;
-        AmmoBar.fillAmount = fillAmmo;
+
+        if (fillHealth >= 0 && fillHealth <= 1)
+            HealthBar.transform.localScale = new Vector3(fillHealth, HealthBar.transform.localScale.y, HealthBar.transform.localScale.z);
+
+        if (fillAmmo >= 0 && fillAmmo <= 1)
+            AmmoBar.transform.localScale = new Vector3(fillAmmo, AmmoBar.transform.localScale.y, AmmoBar.transform.localScale.z);
     }
 
     void changeColorHealth(float fill_)
     {
         if (fill_ >= 0.5)
         {
-            HealthBar.color = new Color(0, 255, 0, 100);
+            HealthBar.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0, 100);
         }
         else if (fill_ > 0.25 && fill_ < 0.5)
         {
-            HealthBar.color = new Color(255, 255, 0, 100);
+            HealthBar.GetComponent<SpriteRenderer>().color = new Color(255, 255, 0, 100);
         }
         else if (fill_ <= 0.25)
         {
-            HealthBar.color = new Color(255, 0, 0, 100);
+            HealthBar.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 100);
         }
     }
 }
