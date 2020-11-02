@@ -395,6 +395,7 @@ MonoBehaviour:
   cadence: 0.2
   reloadTime: 2
   maxBullets: 1
+  rotateBullet: 0
 --- !u!114 &6709045387531293561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,6 +416,7 @@ MonoBehaviour:
   cadence: 0.5
   reloadTime: 2
   maxBullets: 1
+  rotateBullet: 1
   shotAngle_: 360
   shotNum_: 10
 --- !u!1 &7861495478653165091

@@ -18,13 +18,13 @@ public class Abilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(abilityUp && Input.GetMouseButtonDown(1))
+        if(abilityUp && !preparing_ && (Input.GetAxis("FireAbility") != 0 /*|| Input.GetAxis("FireAbility_Joy") != 0*/))
         {
             PrepareAbility();
             preparing_ = true;
         }
 
-        if(preparing_ && Input.GetMouseButtonUp(1))
+        if(preparing_ && (Input.GetAxis("FireAbility") == 0 /*|| Input.GetAxis("FireAbility_Joy") == 0*/))
         {
             UseAbility();
             abilityUp = false;

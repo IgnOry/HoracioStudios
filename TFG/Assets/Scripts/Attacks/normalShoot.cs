@@ -9,8 +9,8 @@ public class normalShoot : MonoBehaviour
     private bool block_ = false;
 
     protected gunRotation gunRot;
-    public int actualBullets;
 
+    public int actualBullets;
     public feedBackCam cam;
     public Transform spawn;
     public GameObject shot;
@@ -18,6 +18,7 @@ public class normalShoot : MonoBehaviour
     public float cadence = 1f;
     public float reloadTime = 1f; //Time it takes to reload
     public int maxBullets = 1;
+    public bool rotateBullet = true;
     //public float bulletTTL = 1f; //Time bullets live
 
     protected virtual void Start()
@@ -47,7 +48,11 @@ public class normalShoot : MonoBehaviour
     //This is a virtual method and will be different for each character
     protected virtual void Shoot()
     {
-        GameObject obj = Instantiate(shot, spawn.position, transform.rotation);
+        GameObject obj;
+        if (rotateBullet)
+            obj = Instantiate(shot, spawn.position, transform.rotation);
+        else
+            obj = Instantiate(shot, spawn.position, Quaternion.identity);
         obj.GetComponent<Rigidbody>().velocity = gunRot.getGunDir() * speed;
         obj.layer = gameObject.layer;
         actualBullets--;
