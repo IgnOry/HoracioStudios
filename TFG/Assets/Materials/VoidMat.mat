@@ -100,6 +100,17 @@ Material:
     - _range: 0.543
     - _scale: 1
     - _value: 0.36
+    - blueScale: 0.31
+    - distortionX: 4.2
+    - distortionY: 3.9
+    - greenScale: 0.04
+    - redScale: 2.09
+    - sizeX: 0.5
+    - sizeY: 0.1
+    - speed: 0.02
+    - waveAmplitude: 0.31
+    - waveFrequency: 7
+    - waveSpeed: 20
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

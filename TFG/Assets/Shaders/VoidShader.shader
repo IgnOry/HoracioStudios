@@ -4,12 +4,22 @@
 	Properties
 	{
 		_MainTex("Color (RGB) Alpha (A)", 2D) = "white" {}
-		_WaveSpeed("WaveSpeed", Range(-1000, 1000)) = 20
-		_Frequency("Frequency", Range(0, 100)) = 10
-		_Amplitude("Amplitude", Range(0, 3)) = 0.02
-		_RedScale("Red Scale", Range(0, 3)) = 1
-		_GreenScale("Green Scale", Range(0, 3)) = 1
-		_BlueScale("Blue Scale", Range(0, 3)) = 1
+		waveSpeed("Wave Speed", Range(-20, 200)) = 20
+		waveFrequency("Frequency", Range(0, 100)) = 10
+		waveAmplitude("Amplitude", Range(0, 3)) = 0.02
+		redScale("Red Scale", Range(0, 3)) = 1
+		greenScale("Green Scale", Range(0, 3)) = 1
+		blueScale("Blue Scale", Range(0, 3)) = 1
+
+
+
+		distortionX("Texture Distortion X", Float) = 4.2
+		distortionY("Texture Distortion Y", Float) = 3.9
+		sizeX("Texture Size X", Float) = 0.5
+		sizeY("Texture Size Y", Float) = 0.1
+
+		speed("Texture Speed", Range(0, 5)) = 0.02
+
 	}
     SubShader
     {
@@ -51,17 +61,22 @@
                 return o;
             }
 
-			static float2 size = float2(0.5, 0.1);
-			static float2 distortion = float2(4.2, 3.9);
-			static float speed = 0.02;
 
-			fixed _Frequency;
-			fixed _WaveSpeed;
-			fixed _Amplitude;
-			fixed _RedScale;
-			fixed _GreenScale;
-			fixed _BlueScale;
+			fixed waveFrequency;
+			fixed waveSpeed;
+			fixed waveAmplitude;
+			fixed redScale;
+			fixed greenScale;
+			fixed blueScale;
 
+			fixed speed;
+			fixed distortionX;
+			fixed distortionY;
+			fixed sizeX;
+			fixed sizeY;
+
+			static float2 size = float2(sizeX, sizeY);
+			static float2 distortion = float2(distortionX, distortionY);
 
 			fixed4 frag(v2f i) : SV_Target
 			{
@@ -74,24 +89,24 @@
 
 				fixed2 uvs = i.uv;
 				fixed4 col = tex2D(_MainTex, transformed / uv);
-				fixed d = sin(uvs.y * _Frequency + _Time * _WaveSpeed) * _Amplitude;
-				col.r += d * _RedScale;
-				col.g += d * _GreenScale;
-				col.b += d * _BlueScale;
+				fixed d = sin(uvs.y * waveFrequency + _Time * waveSpeed) * waveAmplitude;
+				col.r += d * redScale;
+				col.g += d * greenScale;
+				col.b += d * blueScale;
 
 				uvs = i.uv;
 				//col = tex2D(_MainTex, transformed);
-				d = sin(sin(uvs.x * _Frequency + _Time * _WaveSpeed)) * _Amplitude / 3.0;
-				col.r += d * _RedScale;
-				col.g += d * _GreenScale;
-				col.b += d * _BlueScale;
+				d = sin(sin(uvs.x * waveFrequency + _Time * waveSpeed)) * waveAmplitude / 3.0;
+				col.r += d * redScale;
+				col.g += d * greenScale;
+				col.b += d * blueScale;
 
 				uvs = i.uv;
 				//col = tex2D(_MainTex, transformed);
-				d = tan(cos(uvs.x * _Frequency + _Time * _WaveSpeed)) * _Amplitude / 10.0;
-				col.r += d * _RedScale;
-				col.g += d * _GreenScale;
-				col.b += d * _BlueScale;
+				d = tan(cos(uvs.x * waveFrequency + _Time * waveSpeed)) * waveAmplitude / 10.0;
+				col.r += d * redScale;
+				col.g += d * greenScale;
+				col.b += d * blueScale;
 
 				
 				return col;
