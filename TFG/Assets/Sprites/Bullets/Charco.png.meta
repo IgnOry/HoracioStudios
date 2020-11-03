@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 8c88139c7f836724e8cab1bdb1cc1d1a
+guid: 0f75497ed58618343b48089ec4c72b5a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7319443527763830190
-    second: Personaje 3 Idle_0
+      213: 1166327640692242081
+    second: Charco_0
   - first:
-      213: -754285055635301982
-    second: Personaje 3 Idle_1
+      213: -9183845813423704007
+    second: Charco_1
   - first:
-      213: 7725171092164614809
-    second: Personaje 3 Idle_2
+      213: -833661765867563983
+    second: Charco_2
   - first:
-      213: 6264677002250900624
-    second: Personaje 3 Idle_3
+      213: -6111835899939858239
+    second: Charco_3
   - first:
-      213: 6955286482443227320
-    second: Personaje 3 Idle_4
+      213: -433073277875214936
+    second: Charco_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -124,29 +124,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 2
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Personaje 3 Idle_0
+      name: Charco_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,62 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25ada1e34ec1c6a90800000000000000
-      internalID: -7319443527763830190
+      spriteID: 1a63e2b4fc0af2010800000000000000
+      internalID: 1166327640692242081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Personaje 3 Idle_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a9d87ffcbd3885f0800000000000000
-      internalID: -754285055635301982
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Personaje 3 Idle_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 99a9699bd22553b60800000000000000
-      internalID: 7725171092164614809
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Personaje 3 Idle_3
+      name: Charco_1
       rect:
         serializedVersion: 2
         x: 96
         y: 0
-        width: 32
-        height: 32
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09459b7ba8a90f650800000000000000
-      internalID: 6264677002250900624
+      spriteID: 938fbea04ec6c8080800000000000000
+      internalID: -9183845813423704007
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Personaje 3 Idle_4
+      name: Charco_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 0
-        width: 32
-        height: 32
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,8 +184,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b0da118434268060800000000000000
-      internalID: 6955286482443227320
+      spriteID: 13493a67a0d3e64f0800000000000000
+      internalID: -833661765867563983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Charco_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c8da9281a56e2ba0800000000000000
+      internalID: -6111835899939858239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Charco_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a5a886f52a6df9f0800000000000000
+      internalID: -433073277875214936
       vertices: []
       indices: 
       edges: []

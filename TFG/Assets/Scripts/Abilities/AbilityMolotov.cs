@@ -38,6 +38,7 @@ public class AbilityMolotov : MonoBehaviour
 
     protected void UseAbility()
     {
+        GetComponent<AudioSource>().Play();
         GameObject gun = gameObject.GetComponentInChildren<gunRotation>().gameObject;
 
         GameObject obj = Instantiate(molotov, gun.transform.position, transform.rotation);

@@ -11,8 +11,12 @@ public class MolotovExplosion : MonoBehaviour
     {
         if (other.gameObject.layer == 8)
         {
-            Instantiate(llamas, transform.position, transform.rotation);
+            Instantiate(llamas, transform.position, llamas.transform.rotation);
             Destroy(this.gameObject);
         }
+    }
+    private void Update()
+    {
+        transform.Rotate(Vector3.back, 1000f * Time.deltaTime);
     }
 }

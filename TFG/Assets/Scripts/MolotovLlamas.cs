@@ -14,7 +14,6 @@ public class MolotovLlamas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.transform.Rotate(new Vector3(-45, 0, 0));
         GetComponent<AudioSource>().Play();
     }
 
