@@ -58,7 +58,10 @@ public class normalShoot : MonoBehaviour
 
         //fixes rotation so bullet looks in the direction it's shot
         if (rotateBullet)
+        {
             obj.transform.rotation = Quaternion.LookRotation(obj.GetComponent<Rigidbody>().velocity, Vector3.up);
+            obj.transform.rotation *= Quaternion.Euler(90, -90, 0);
+        }
 
         obj.layer = gameObject.layer;
         actualBullets--;
