@@ -14,6 +14,11 @@ public class shotGun : normalShoot
         for(int i = 0; i < shotNum_; i++) {
             GameObject obj = Instantiate(shot, spawn.position, transform.rotation);
             obj.GetComponent<Rigidbody>().velocity =  Rotate(gunRot.getGunDir(), (shotAngle_/2.0f) - incr*i) * speed;
+
+            //fixes rotation so bullets look in the direction they move
+            //obj.transform.rotation = Quaternion.LookRotation(obj.GetComponent<Rigidbody>().velocity, Vector3.up);
+            //obj.transform.rotation *= Quaternion.Euler(90, -90, 0);
+            
             obj.layer = gameObject.layer;
         }
         actualBullets -= shotNum_;

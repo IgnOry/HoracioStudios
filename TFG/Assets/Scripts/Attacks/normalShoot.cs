@@ -53,7 +53,13 @@ public class normalShoot : MonoBehaviour
             obj = Instantiate(shot, spawn.position, transform.rotation);
         else
             obj = Instantiate(shot, spawn.position, Quaternion.identity);
+        
         obj.GetComponent<Rigidbody>().velocity = gunRot.getGunDir() * speed;
+
+        //fixes rotation so bullet looks in the direction it's shot
+        if (rotateBullet)
+            obj.transform.rotation = Quaternion.LookRotation(obj.GetComponent<Rigidbody>().velocity, Vector3.up);
+
         obj.layer = gameObject.layer;
         actualBullets--;
     }

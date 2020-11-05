@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5563244363503320516}
   - component: {fileID: 3389078411488427139}
-  - component: {fileID: 3166167952690312121}
   - component: {fileID: 6815994469571720559}
   - component: {fileID: 4797550909031479343}
+  - component: {fileID: 7759176799603874931}
   m_Layer: 9
   m_Name: Bad Baby
   m_TagString: ATeam
@@ -55,19 +55,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &3166167952690312121
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3812333541974677670}
-  m_Material: {fileID: 13400000, guid: e3a68208f3d322a44b62ffe35a4de15b, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.74142015, y: 0.74142, z: 0.5505522}
-  m_Center: {x: 0, y: -8.064027e-16, z: -0.1932544}
 --- !u!114 &6815994469571720559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,6 +86,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 5
+--- !u!136 &7759176799603874931
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3812333541974677670}
+  m_Material: {fileID: 13400000, guid: e3a68208f3d322a44b62ffe35a4de15b, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.33448106
+  m_Height: 0.7901997
+  m_Direction: 1
+  m_Center: {x: 0.02557987, y: 0.032053202, z: -9.588135e-10}
 --- !u!1 &4797550910244645496
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +568,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1197646a85def124390178435b2cd60a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -600,7 +601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 315410291461635041, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 315410291461635041, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
       propertyPath: m_LocalRotation.x
