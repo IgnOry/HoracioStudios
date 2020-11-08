@@ -57,10 +57,10 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 0.4999, y: 0.4999}
+      m_Scale: {x: 1, y: 0.4}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
-      m_Anchor: 2
+      m_Anchor: 6
     m_Material: {fileID: 0}
     m_SubmeshIndex: 0
     m_ManualUV: 0
@@ -74,10 +74,10 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 0.4999, y: 0.4999}
+      m_Scale: {x: 1, y: 0.4}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
-      m_Anchor: 2
+      m_Anchor: 6
     m_Material: {fileID: 0}
     m_SubmeshIndex: 0
     m_ManualUV: 0
@@ -91,10 +91,10 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 0.4999, y: 0.4999}
+      m_Scale: {x: 1, y: 0.4}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
-      m_Anchor: 2
+      m_Anchor: 6
     m_Material: {fileID: 0}
     m_SubmeshIndex: 0
     m_ManualUV: 0
@@ -108,10 +108,10 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 0.4999, y: 0.4999}
+      m_Scale: {x: 1, y: 0.4}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
-      m_Anchor: 2
+      m_Anchor: 6
     m_Material: {fileID: 0}
     m_SubmeshIndex: 0
     m_ManualUV: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 0.4999, y: 0.4999}
+      m_Scale: {x: 1, y: 0.4}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 0
@@ -166,26 +166,26 @@ MonoBehaviour:
   - {x: 0, y: 1.5, z: -1}
   - {x: 1, y: 1.5, z: -1}
   m_Textures0:
-  - {x: 1, y: 0.25014997}
-  - {x: 0.5001001, y: 0.25014997}
-  - {x: 1, y: 1}
-  - {x: 0.5001001, y: 1}
-  - {x: 1, y: 0.25014997}
-  - {x: 0.5001001, y: 0.25014997}
-  - {x: 1, y: 1}
-  - {x: 0.5001001, y: 1}
-  - {x: 1, y: 0.25014997}
-  - {x: 0.5001, y: 0.25014997}
-  - {x: 1, y: 1}
-  - {x: 0.5001, y: 1}
-  - {x: 1, y: 0.25014997}
-  - {x: 0.5001, y: 0.25014997}
-  - {x: 1, y: 1}
-  - {x: 0.5001, y: 1}
-  - {x: 0, y: 1}
-  - {x: 0.49989998, y: 1}
-  - {x: 0, y: 0.5001001}
-  - {x: 0.49989998, y: 0.5001001}
+  - {x: 1, y: 0}
+  - {x: 0, y: 0}
+  - {x: 1, y: 0.59999996}
+  - {x: 0, y: 0.59999996}
+  - {x: 1, y: 0}
+  - {x: 0, y: 0}
+  - {x: 1, y: 0.59999996}
+  - {x: 0, y: 0.59999996}
+  - {x: 1, y: 0}
+  - {x: 0, y: 0}
+  - {x: 1, y: 0.59999996}
+  - {x: 0, y: 0.59999996}
+  - {x: 1, y: 0}
+  - {x: 0, y: 0}
+  - {x: 1, y: 0.59999996}
+  - {x: 0, y: 0.59999996}
+  - {x: 0, y: 0.99999994}
+  - {x: 1, y: 0.99999994}
+  - {x: 0, y: 0.59999996}
+  - {x: 1, y: 0.59999996}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
@@ -294,7 +294,7 @@ BoxCollider:
   m_GameObject: {fileID: 2283994831810871392}
   m_Material: {fileID: 13400000, guid: e3a68208f3d322a44b62ffe35a4de15b, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.01, y: 3.704136, z: 1.01}
-  m_Center: {x: 0.5, y: 1.852068, z: -0.5}
+  m_Size: {x: 1.0430293, y: 3.7509928, z: 1.7101359}
+  m_Center: {x: 0.5, y: 1.8520675, z: -0.1599319}
