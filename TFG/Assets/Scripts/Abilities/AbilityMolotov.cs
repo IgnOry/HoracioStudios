@@ -10,8 +10,8 @@ public class AbilityMolotov : MonoBehaviour
     public float distance = 0;
     public float coolDown;
 
-    Vector2 mPos;
-    Vector2 gPos;
+    Vector3 mPos;
+    Vector3 gPos;
 
     private bool abilityUp = true;
     private bool preparing_ = false;
@@ -43,8 +43,10 @@ public class AbilityMolotov : MonoBehaviour
 
         GameObject obj = Instantiate(molotov, gun.transform.position, transform.rotation);
         obj.layer = gameObject.layer;
-        obj.GetComponent<Rigidbody>().velocity = new Vector3(mPos.x, gameObject.transform.position.y+5, mPos.y) - obj.transform.position;
-        Debug.Log(obj.GetComponent<Rigidbody>().velocity);
+        obj.GetComponent<Rigidbody>().velocity = target.transform.position - obj.transform.position;
+        obj.GetComponent<Rigidbody>().velocity += new Vector3(0.0f, distance * 2, 0.0f);
+
+        //Debug.Log(obj.GetComponent<Rigidbody>().velocity);
 
         Destroy(target);
     }
@@ -66,38 +68,70 @@ public class AbilityMolotov : MonoBehaviour
         {
             Transform objectHit = hit.transform;
 
-            gPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.z);
-            mPos = new Vector2(hit.point.x, hit.point.z);
+            gPos = new Vector3(gameObject.transform.position.x, 0.0f, gameObject.transform.position.z);
+            
+            mPos = new Vector3(hit.point.x, 0.0f, hit.point.z);
 
-            if (Vector2.Distance(gPos, mPos) < distance)
-            {
 
-                if (target != null)
+            Vector3 diff = mPos - gPos;
+            float dist = diff.magnitude;
+
+            if (dist >= distance)
+                dist = distance;
+
+            Ray test = new Ray(transform.position, diff.normalized);
+
+            RaycastHit hitTest;
+
+
+            if (!Physics.Raycast(test, out hitTest, dist) || hitTest.transform.tag != "Wall") {
+                if (dist < distance)
                 {
-                    target.transform.position = new Vector3(mPos.x, gameObject.transform.position.y, mPos.y);
+
+                    if (target != null)
+                    {
+                        target.transform.position = new Vector3(mPos.x, hit.point.y, mPos.z);
+                    }
+
+                    else
+                    {
+                        target = Instantiate(targetM, new Vector3(mPos.x, hit.point.y, mPos.z), new Quaternion(0, 0, 0, 0));
+                        target.transform.Rotate(new Vector3(90, 0, 0));
+                    }
                 }
 
                 else
                 {
-                    target = Instantiate(targetM, new Vector3(mPos.x, gameObject.transform.position.y, mPos.y), new Quaternion(0, 0, 0, 0));
-                    target.transform.Rotate(new Vector3(90, 0, 0));
+                    if (target == null)
+                    {
+                        target = Instantiate(targetM, new Vector3(gPos.x, hit.point.y, gPos.z) + diff.normalized * distance, new Quaternion(0, 0, 0, 0));
+                        target.transform.Rotate(new Vector3(90, 0, 0));
+                    }
+
+                    else
+                    {
+                        target.transform.position = new Vector3(gPos.x, hit.point.y, gPos.z) + diff.normalized * distance;
+                    }
                 }
             }
-            else //Falla un poco
+
+            else
             {
-                Vector3 diff = mPos - gPos;
-                float dist = diff.magnitude;
+                //Debug.Log(hitTest.point);
+                diff = hitTest.point;
+                diff.y = 0.0f;
+                diff -= gPos;
+                dist = diff.magnitude;
+
                 if (target == null)
                 {
-                    target = Instantiate(targetM);
-                    target.transform.position = new Vector3(gPos.x, gameObject.transform.position.y, gPos.y) + diff.normalized * distance;
+                    target = Instantiate(targetM, new Vector3(gPos.x, hit.transform.position.y, gPos.z) + diff.normalized * dist, new Quaternion(0, 0, 0, 0));
                     target.transform.Rotate(new Vector3(90, 0, 0));
                 }
 
                 else
                 {
-                    target.transform.position = new Vector3(gPos.x, gameObject.transform.position.y, gPos.y) + diff.normalized * distance;
-                    mPos = new Vector2(target.transform.position.x, target.transform.position.z);
+                    target.transform.position = new Vector3(gPos.x, hit.transform.position.y, gPos.z) + diff.normalized * dist;
                 }
             }
         }
