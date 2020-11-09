@@ -9,9 +9,12 @@ public class gunRotation : MonoBehaviour
     public SpriteRenderer _sprite;
 
     private GameManager gm = null;
+    private StateMachine states; //States Machine from the character
+
 
     private void Start()
     {
+        states = GetComponentInParent<StateMachine>();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -32,7 +35,8 @@ public class gunRotation : MonoBehaviour
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 dir = Input.mousePosition - pos;
 
-        manageDir(dir);
+        if (states.GetState().state <= States.Root)
+            manageDir(dir);
     }
 
     public bool controllerAim()
@@ -44,8 +48,8 @@ public class gunRotation : MonoBehaviour
             ret = true;
             
             Vector2 dir = new Vector2(Input.GetAxis("Aim_X"), Input.GetAxis("Aim_Y"));
-
-            manageDir(dir);
+            if (states.GetState().state <= States.Root)
+                manageDir(dir);
         }
 
         return ret;
@@ -54,11 +58,11 @@ public class gunRotation : MonoBehaviour
     public void manageDir(Vector3 dir)
     {
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        
         transform.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         //this way it's always parallel to the ground
         transform.localEulerAngles = new Vector3(transform.parent.transform.eulerAngles.x / 2.0f, transform.localEulerAngles.y, transform.localEulerAngles.z);
-
         gunDir = dir.normalized;
         gunDir.z = gunDir.y;
         gunDir.y = 0;

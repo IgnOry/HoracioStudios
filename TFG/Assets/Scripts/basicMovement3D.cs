@@ -2,26 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class basicMovement3D : MonoBehaviour
 {
     public gunRotation _gun;
     public Animator _animator;
     public SpriteRenderer _sprite;
     public float speed;                //Floating point variable to store the player's movement speed.
-    /*
-    public float jump;
-    public float groundDetectHeight;
-    [SerializeField] private LayerMask groundLayer;
-    */
+                                        /*
+                                        public float jump;
+                                        public float groundDetectHeight;
+                                        [SerializeField] private LayerMask groundLayer;
+                                        */
 
     private Rigidbody rb;        //Store a reference to the Rigidbody2D component required to use 2D Physics.
-    //private BoxCollider col;        //Store a reference to the Rigidbody2D component required to use 2D Physics.    
+                                    //private BoxCollider col;        //Store a reference to the Rigidbody2D component required to use 2D Physics.    
 
     public GameManager gm = null;
+
+    private StateMachine states;
 
     // Start is called before the first frame update
     void Start()
     {
+        states = GetComponent<StateMachine>();
+
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         rb = GetComponent<Rigidbody>();
         //col = GetComponent<BoxCollider>();
@@ -62,23 +67,42 @@ public class basicMovement3D : MonoBehaviour
             }
         }
 
-        _animator.SetBool("moving", moveX != 0f || moveZ != 0f);
+        if (states.GetState().state == States.Charm)
+        {
+            moveX = states.GetState().dir.x;
+            moveZ = states.GetState().dir.z;
+        }
+            //Meter un if de si esta con charm, llamar a un metodo que quite el charm despues de x segundos. A esto se le llama cuando choca la bala
+
+            _animator.SetBool("moving", moveX != 0f || moveZ != 0f);
 
         if (_gun.getGunDir().x <= 0)
             _sprite.flipX = true;
-        else if(_gun.getGunDir().x > 0)
+        else if (_gun.getGunDir().x > 0)
             _sprite.flipX = false;
         //Store the current vertical input in the float moveVertical.
 
         float moveY = rb.velocity.y;
 
-        _animator.SetBool("backwards", (moveX > 0f &&  _sprite.flipX) || (moveX <= 0f && !_sprite.flipX));
+        _animator.SetBool("backwards", (moveX > 0f && _sprite.flipX) || (moveX <= 0f && !_sprite.flipX));
         //Use the two store floats to create a new Vector2 variable movement.
         Vector3 movement = new Vector3(moveX, moveY, moveZ);
 
         //Call the AddForce function of our Rigidbody2D rb2d supplying movement multiplied by speed to move our player.
         rb.velocity = movement;
     }
+
+
+    /*public void Charm(float time)
+    {
+        StartCoroutine(SetState());
+        actualState = State.Charm;
+    }
+
+    private void UpdateState()
+    {
+
+    }*/
 
     /*
     void Jump()

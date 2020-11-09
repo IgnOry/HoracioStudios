@@ -21,8 +21,11 @@ public class normalShoot : MonoBehaviour
     public bool rotateBullet = true;
     //public float bulletTTL = 1f; //Time bullets live
 
+    private StateMachine states;
+
     protected virtual void Start()
     {
+        states = GetComponentInParent<StateMachine>();
         gunRot = gameObject.GetComponent<gunRotation>();
         actualBullets = maxBullets;
     }
@@ -31,9 +34,11 @@ public class normalShoot : MonoBehaviour
     {
         if (!block_ && time_ <= 0f && actualBullets > 0 && (Input.GetAxis("Fire") != 0 || Input.GetAxis("Fire_Joy") != 0))
         {
-            Shoot();
-            cam.startShaking();
-            time_ = cadence;
+            if (states.GetState().state <= States.Root) {
+                Shoot();
+                cam.startShaking();
+                time_ = cadence;
+            }
         }
         else if (actualBullets <= 0)
         {

@@ -7,7 +7,7 @@ public class dieOnHit : timeToLive
 
     public string[] ignore;
 
-    private void OnCollisionEnter(Collision collision)
+    virtual protected void OnCollisionEnter(Collision collision)
     {
         bool col = false;
         foreach(string i  in ignore)
@@ -15,7 +15,6 @@ public class dieOnHit : timeToLive
             col = col || collision.gameObject.tag == i;
         }
 
-        Debug.Log(collision.gameObject.tag);
         //Other bullets cant destroy this bullet
         if(col)
         {
