@@ -21,6 +21,8 @@ public class shotGun : normalShoot
 
             obj.layer = gameObject.layer;
         }
+        if (GetComponent<AudioSource>())
+            GetComponent<AudioSource>().Play();
         actualBullets -= shotNum_;
     }
 

@@ -68,6 +68,10 @@ public class normalShoot : MonoBehaviour
             obj.transform.rotation *= Quaternion.Euler(90, -90, 0);
         }
 
+        if(GetComponent<AudioSource>())
+        {
+            GetComponent<AudioSource>().Play();
+        }
         obj.layer = gameObject.layer;
         actualBullets--;
     }
