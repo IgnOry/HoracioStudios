@@ -18,7 +18,7 @@ public class AbilityBadBaby : Abilities
     protected override void UseAbility()
     {
         //Shoot the bullet
-        GameObject obj = Instantiate(bullet, spawnPoint.position, transform.rotation);
+        GameObject obj = Instantiate(bullet, spawnPoint.position, bullet.transform.rotation);
         gunRotation gunRot = GetComponent<gunRotation>();
         obj.GetComponent<Rigidbody>().velocity = gunRot.getGunDir() * speedBullet;
         obj.layer = gameObject.layer;

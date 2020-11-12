@@ -656,7 +656,7 @@ MonoBehaviour:
   cadence: 0.5
   reloadTime: 2
   maxBullets: 1
-  rotateBullet: 1
+  rotateBullet: 0
 --- !u!114 &1750565573
 MonoBehaviour:
   m_ObjectHideFlags: 0
