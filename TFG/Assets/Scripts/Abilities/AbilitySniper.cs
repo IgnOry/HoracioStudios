@@ -14,8 +14,9 @@ public class AbilitySniper : Abilities
     private normalShoot shootBehaviour_;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         camSize_ = cam_.orthographicSize;
         shootBehaviour_ = GetComponent<normalShoot>();
     }

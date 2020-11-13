@@ -12,7 +12,7 @@ public class Abilities : MonoBehaviour
     private StateMachine states_;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         states_ = GetComponentInParent<StateMachine>();
     }
