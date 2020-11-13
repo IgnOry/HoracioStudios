@@ -32,6 +32,8 @@ public class badBabyShoot : normalShoot
         base.Shoot();
         resetShield();
         createShield();
+        if (GetComponent<AudioSource>())
+            GetComponent<AudioSource>().Play();
     }
 
     //Creates the bullets that rotates around the player
