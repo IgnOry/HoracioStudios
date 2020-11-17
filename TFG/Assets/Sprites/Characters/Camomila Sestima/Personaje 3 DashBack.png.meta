@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 57a9b8ecaba14e24bba7a3ab5eabee85
+guid: 839445fa7d49dd74987d143e0bd57e30
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3420764334321987064
-    second: Personaje 3 Dash_0
+      213: 2838778626049205749
+    second: Personaje 3 DashBack_0
   - first:
-      213: 9050044545170403785
-    second: Personaje 3 Dash_1
+      213: 8204686161073589353
+    second: Personaje 3 DashBack_1
   - first:
-      213: -4109440443789471767
-    second: Personaje 3 Dash_2
+      213: -6084528419800332838
+    second: Personaje 3 DashBack_2
   - first:
-      213: 5570838426109910629
-    second: Personaje 3 Dash_3
+      213: 401154796553823179
+    second: Personaje 3 DashBack_3
   - first:
-      213: 493312855793972053
-    second: Personaje 3 Dash_4
+      213: 2311677602261920383
+    second: Personaje 3 DashBack_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -128,7 +128,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Personaje 3 Dash_0
+      name: Personaje 3 DashBack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -142,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fd669fb90ff87f20800000000000000
-      internalID: 3420764334321987064
+      spriteID: 5f562a1be1e556720800000000000000
+      internalID: 2838778626049205749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Personaje 3 Dash_1
+      name: Personaje 3 DashBack_1
       rect:
         serializedVersion: 2
         x: 32
@@ -163,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c1f75c8097389d70800000000000000
-      internalID: 9050044545170403785
+      spriteID: 96cca5cd796ecd170800000000000000
+      internalID: 8204686161073589353
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Personaje 3 Dash_2
+      name: Personaje 3 DashBack_2
       rect:
         serializedVersion: 2
         x: 64
@@ -184,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ef0e4a60b558f6c0800000000000000
-      internalID: -4109440443789471767
+      spriteID: ad54800b3a96f8ba0800000000000000
+      internalID: -6084528419800332838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Personaje 3 Dash_3
+      name: Personaje 3 DashBack_3
       rect:
         serializedVersion: 2
         x: 96
@@ -205,14 +205,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56e906178089f4d40800000000000000
-      internalID: 5570838426109910629
+      spriteID: bc3e88c7920319500800000000000000
+      internalID: 401154796553823179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Personaje 3 Dash_4
+      name: Personaje 3 DashBack_4
       rect:
         serializedVersion: 2
         x: 128
@@ -226,8 +226,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 553bbbcbd6998d600800000000000000
-      internalID: 493312855793972053
+      spriteID: f7a6c0e088ab41020800000000000000
+      internalID: 2311677602261920383
       vertices: []
       indices: 
       edges: []

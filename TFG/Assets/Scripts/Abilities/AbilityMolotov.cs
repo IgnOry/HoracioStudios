@@ -57,7 +57,7 @@ public class AbilityMolotov : MonoBehaviour
     }
 
     //Show the ability template
-    protected void PrepareAbility()
+    protected bool PrepareAbility()
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -135,5 +135,7 @@ public class AbilityMolotov : MonoBehaviour
                 }
             }
         }
+
+        return true;
     }
 }

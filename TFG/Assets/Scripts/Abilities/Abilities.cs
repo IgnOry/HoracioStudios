@@ -28,8 +28,7 @@ public class Abilities : MonoBehaviour
         }
         else if(abilityUp && !preparing_ && (Input.GetAxis("FireAbility") != 0 /*|| Input.GetAxis("FireAbility_Joy") != 0*/))
         {
-            PrepareAbility();
-            preparing_ = true;
+            preparing_ = PrepareAbility();
         }
 
         if(preparing_ && (Input.GetAxis("FireAbility") == 0 /*|| Input.GetAxis("FireAbility_Joy") == 0*/))
@@ -48,9 +47,10 @@ public class Abilities : MonoBehaviour
     }
 
     //Show the ability template
-    protected virtual void PrepareAbility()
+    protected virtual bool PrepareAbility()
     {
         //Debug.Log("Lo estoy enseñando");
+        return true;
     }
 
     protected void SetAbilityUp()

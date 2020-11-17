@@ -491,7 +491,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3095534150408803895}
-  m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
   m_LocalPosition: {x: -1, y: 5, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -630,7 +630,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4624386488461744629}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e10f29025ca824448b62f96867dff2c, type: 3}
   m_Name: 
@@ -638,12 +638,12 @@ MonoBehaviour:
   actualBullets: 0
   cam: {fileID: 4826876754035699026}
   spawn: {fileID: 7133277314833842950}
-  shot: {fileID: 8306123816286157484, guid: 25f13c8583089b14f9dc99b1b166c948, type: 3}
+  shot: {fileID: 6834282723482618177, guid: ecc5ffe2e783ebd4189e67ca962021f5, type: 3}
   speed: 10
-  cadence: 0.2
+  cadence: 0.01
   reloadTime: 2
-  maxBullets: 1
-  rotateBullet: 0
+  maxBullets: 300
+  rotateBullet: 1
 --- !u!114 &246349886585244765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4624386488461744629}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8237cfc121631d943ab1b8ea62e9864b, type: 3}
   m_Name: 
@@ -659,14 +659,14 @@ MonoBehaviour:
   actualBullets: 0
   cam: {fileID: 4826876754035699026}
   spawn: {fileID: 7133277314833842950}
-  shot: {fileID: 6973828575507153277, guid: cfb36415c1e461b4e84552921aeacc50, type: 3}
+  shot: {fileID: 6834282723482618177, guid: ecc5ffe2e783ebd4189e67ca962021f5, type: 3}
   speed: 10
   cadence: 0.5
   reloadTime: 2
-  maxBullets: 1
+  maxBullets: 20
   rotateBullet: 1
-  shotAngle_: 360
-  shotNum_: 10
+  shotAngle_: 25
+  shotNum_: 5
 --- !u!114 &4624386488461744626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,8 +681,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolDown: 1
   template: {fileID: 0}
-  dashSpeed: 5
-  dashTime: 0.1
+  _animator: {fileID: 0}
+  dashSpeed: 3
+  dashTime: 0.2
 --- !u!1 &5863829321438124595
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +921,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6576166819957125429}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.098000064}
+  m_LocalPosition: {x: 0.177, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 577393953543723012}
@@ -951,7 +952,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7898272586945276816}
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: -0.085, z: 0.069}
+  m_LocalPosition: {x: 0, y: -0.062, z: 0.088}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2354334575288359977}

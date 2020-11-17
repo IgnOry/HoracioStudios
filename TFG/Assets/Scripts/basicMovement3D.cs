@@ -73,9 +73,9 @@ public class basicMovement3D : MonoBehaviour
             moveZ = states.GetState().dir.z;
         }
 
-            //Meter un if de si esta con charm, llamar a un metodo que quite el charm despues de x segundos. A esto se le llama cuando choca la bala
+        //Meter un if de si esta con charm, llamar a un metodo que quite el charm despues de x segundos. A esto se le llama cuando choca la bala
 
-            _animator.SetBool("moving", moveX != 0f || moveZ != 0f);
+        _animator.SetBool("moving", moveX != 0f || moveZ != 0f);
 
         if (_gun.getGunDir().x <= 0)
             _sprite.flipX = true;

@@ -21,7 +21,7 @@ public class AbilitySniper : Abilities
         shootBehaviour_ = GetComponent<normalShoot>();
     }
 
-    protected override void PrepareAbility()
+    protected override bool PrepareAbility()
     {
         //View template
         base.PrepareAbility();
@@ -29,6 +29,7 @@ public class AbilitySniper : Abilities
         template.SetActive(true);
 
         cam_.orthographicSize *= multiplier;
+        return true;
     }
 
     protected override void UseAbility()

@@ -8,11 +8,12 @@ public class AbilityBadBaby : Abilities
     public Transform spawnPoint;
     public float speedBullet;
 
-    protected override void PrepareAbility()
+    protected override bool PrepareAbility()
     {
         //View template
         base.PrepareAbility();
         template.SetActive(true);
+        return true;
     }
 
     protected override void UseAbility()
