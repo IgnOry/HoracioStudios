@@ -22,6 +22,9 @@ public class basicMovement3D : MonoBehaviour
 
     private StateMachine states;
 
+    protected float moveX = 0.0f;
+    protected float moveZ = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,9 +50,6 @@ public class basicMovement3D : MonoBehaviour
 
     void Move()
     {
-        float moveX = 0.0f;
-        float moveZ = 0.0f;
-
         if (gm != null)
         {
 
@@ -72,6 +72,7 @@ public class basicMovement3D : MonoBehaviour
             moveX = states.GetState().dir.x;
             moveZ = states.GetState().dir.z;
         }
+
             //Meter un if de si esta con charm, llamar a un metodo que quite el charm despues de x segundos. A esto se le llama cuando choca la bala
 
             _animator.SetBool("moving", moveX != 0f || moveZ != 0f);
@@ -92,7 +93,25 @@ public class basicMovement3D : MonoBehaviour
         rb.velocity = movement;
     }
 
+    public float getMoveX()
+    {
+        return moveX;
+    }
+    
+    public float getMoveZ()
+    {
+        return moveZ;
+    }
 
+    public Animator getAnimator()
+    {
+        return _animator;
+    }
+
+    public bool getSpriteFlip()
+    {
+        return _sprite.flipX;
+    }
     /*public void Charm(float time)
     {
         StartCoroutine(SetState());
