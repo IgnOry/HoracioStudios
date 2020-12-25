@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 872524539}
   - component: {fileID: 872524537}
   - component: {fileID: 872524540}
+  - component: {fileID: 872524538}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -154,6 +155,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstScene: Trailer
+--- !u!114 &872524538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872524536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187cc2fb2319e154aa5a7069e9b6b0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yellowCursor: {fileID: 2800000, guid: 66a665ca9d68fcc4d950890f2427baa6, type: 3}
+  greenCursor: {fileID: 2800000, guid: bf4bb846b53ca9541bffd70fc54037a4, type: 3}
 --- !u!4 &872524539
 Transform:
   m_ObjectHideFlags: 0

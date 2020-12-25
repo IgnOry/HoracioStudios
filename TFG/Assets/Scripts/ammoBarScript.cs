@@ -10,20 +10,21 @@ public class ammoBarScript : MonoBehaviour
     public float maxAmmo;
     private float fill;
     public GameObject gun;
+    private normalShoot gunShoot;
 
     // Start is called before the first frame update
     void Start()
     {
-        maxAmmo = gun.GetComponent<normalShoot>().getMaxBullets();
+        gunShoot = gun.GetComponent<normalShoot>();
+        maxAmmo = gunShoot.getMaxBullets();
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentAmmo = gun.GetComponent<normalShoot>().getCurrentBullets();
+        currentAmmo = gunShoot.getCurrentBullets();
 
         fill = currentAmmo / maxAmmo;
-
         AmmoBar.fillAmount = fill;
     }
 }

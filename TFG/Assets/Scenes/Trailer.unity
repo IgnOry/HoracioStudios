@@ -48526,7 +48526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4809703122231123618, guid: 8e32ce535c4bdd2429e8a0cd3cf08e4b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e32ce535c4bdd2429e8a0cd3cf08e4b, type: 3}
@@ -68318,6 +68318,10 @@ PrefabInstance:
     - target: {fileID: 3095534150408803895, guid: 245bceb1a39684f44bb955e11ff4d062, type: 3}
       propertyPath: m_Name
       value: Camomila Sestima
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095534150408803895, guid: 245bceb1a39684f44bb955e11ff4d062, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8859424796287410545, guid: 245bceb1a39684f44bb955e11ff4d062, type: 3}
       propertyPath: m_LocalPosition.x

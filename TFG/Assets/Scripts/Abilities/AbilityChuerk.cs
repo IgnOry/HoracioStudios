@@ -36,6 +36,5 @@ public class AbilityChuerk : MonoBehaviour
         {
             gas += Time.deltaTime;
         }
-        Debug.Log("GAS: " + gas);
     }
 }

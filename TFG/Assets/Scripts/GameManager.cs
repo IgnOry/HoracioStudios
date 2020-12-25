@@ -9,7 +9,10 @@ public class GameManager : MonoBehaviour
     public bool isControllerMode = false;
 
 
-
+    private void Start()
+    {
+        CursorController.instance.ActivateYellowCursor();
+    }
     void Update()
     {
         if (isControllerMode)
