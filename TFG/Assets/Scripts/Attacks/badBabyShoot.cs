@@ -7,7 +7,12 @@ public class badBabyShoot : normalShoot
     public float distShield; //Distance from the character to the shield
     public float speedRot; //Speed the bullets rotate
     public GameObject shield;
-    //public GameObject parent;
+
+    public float phase = 0.0f;
+    public float phaseSpeed = -20f;
+
+    public List<GameObject> shieldNotes;
+    public List<GameObject> shieldGone;
 
     private bool reloading = false;
 
@@ -22,21 +27,56 @@ public class badBabyShoot : normalShoot
     protected override void Update()
     {
         //Rotate the spawn point to rotate the bullets too
-        spawn.Rotate(new Vector3(0.0f, 1.0f, 0.0f)*speedRot * Time.deltaTime, Space.World);
-        checkShield(); 
+        //spawn.Rotate(new Vector3(0.0f, 1.0f, 0.0f)*speedRot * Time.deltaTime, Space.World);
+
+        phase = (phase + (phaseSpeed * Time.deltaTime)) % 360.0f;
+
+        checkShield();
+
+        updateShield();
+
         base.Update(); //Se esta llamando al reload mazo por algo, miralo anda, que pasan cosas raras
     }
 
     protected override void Shoot()
     {
         base.Shoot();
-        resetShield();
-        createShield();
+
+        GameObject obj = shieldNotes[0];
+
+        obj.SetActive(false);
+
+        shieldGone.Add(obj);
+        shieldNotes.RemoveAt(0);
+
+        updateShield();
+        //createShield();
         if (GetComponent<AudioSource>())
             GetComponent<AudioSource>().Play();
     }
 
-    //Creates the bullets that rotates around the player
+    //updates bullets that rotate around the player
+    private void updateShield()
+    {
+        for (int i = 0; i < actualBullets; i++)
+        {
+            shieldNotes[i].transform.position = spawn.position + Rotate(new Vector3(1.0f, 0.0f, 1.0f), 360 * ((float)i / (float)actualBullets) + phase).normalized * distShield;
+        }
+    }
+
+    //updates bullets that rotate around the player
+    private void resetShield()
+    {
+        foreach (GameObject obj in shieldGone)
+        {
+            obj.SetActive(true);
+            shieldNotes.Add(obj);
+        }
+
+        shieldGone.Clear();
+    }
+
+    //Creates the bullets that rotate around the player
     private void createShield()
     {
         if (reloading)
@@ -48,16 +88,10 @@ public class badBabyShoot : normalShoot
             GameObject obj = Instantiate(shield, spawn.position, Quaternion.identity);
             obj.transform.SetParent(spawn); //Set the bullets as a child from the spawn point
             obj.transform.localPosition = Vector3.zero;
-            obj.transform.Translate(Rotate(new Vector3(1.0f, 0.0f, 1.0f), 360*((float)i/(float)actualBullets)).normalized*distShield);
+            obj.transform.Translate(Rotate(new Vector3(1.0f, 0.0f, 1.0f), 360 * ((float)i / (float)actualBullets)).normalized * distShield);
             obj.layer = gameObject.layer;
-        }
-    }
 
-    private void resetShield()
-    {
-        foreach (Transform child in spawn)
-        {
-            Destroy(child.gameObject);
+            shieldNotes.Add(obj);
         }
     }
 
@@ -67,7 +101,6 @@ public class badBabyShoot : normalShoot
         if (!reloading && actualBullets > GameObject.FindGameObjectsWithTag("BBShield").Length)
         {
             actualBullets = GameObject.FindGameObjectsWithTag("BBShield").Length;
-            resetShield();
             createShield();
         }
     }
@@ -76,14 +109,17 @@ public class badBabyShoot : normalShoot
     {
         reloading = true;
         base.Reload();
-        Invoke("createShield", reloadTime);
+        Invoke("resetShield", reloadTime);
     }
 
     public void killShield()
     {
         actualBullets--;
-        resetShield();
-        createShield();
+        //resetShield();
+        //createShield();
+
+
+        updateShield();
     }
 
 
