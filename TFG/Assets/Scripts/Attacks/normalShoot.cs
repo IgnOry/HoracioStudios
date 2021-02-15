@@ -43,6 +43,8 @@ public class normalShoot : MonoBehaviour
         else if (actualBullets <= 0)
         {
             Reload();
+            if(GetComponent<GunReloadEffect>())
+                GetComponent<GunReloadEffect>().ChargeAnim(reloadTime);
         }
         else
         {

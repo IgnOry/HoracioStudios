@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 342828601995630261}
   - component: {fileID: 342828601995630260}
   - component: {fileID: 3801897404473697218}
+  - component: {fileID: 2159665232755052500}
   - component: {fileID: 4672016850594332088}
   m_Layer: 9
   m_Name: gun_pivot
@@ -263,12 +264,25 @@ MonoBehaviour:
   actualBullets: 0
   cam: {fileID: 3801897404750654789}
   spawn: {fileID: 3801897404201086067}
-  shot: {fileID: 5161258702697907081, guid: 8e25d896f8e3a3a449e0d694a8f4b1c7, type: 3}
+  shot: {fileID: 8306123816286157484, guid: 25f13c8583089b14f9dc99b1b166c948, type: 3}
   speed: 10
   cadence: 0.1
   reloadTime: 2
   maxBullets: 10
   rotateBullet: 1
+--- !u!114 &2159665232755052500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342828601995630262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8590ea6b76d42045ab0fac2fce70dfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunSprite: {fileID: 342828601723418683}
 --- !u!82 &4672016850594332088
 AudioSource:
   m_ObjectHideFlags: 0
