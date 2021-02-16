@@ -109,13 +109,14 @@ GameObject:
   - component: {fileID: 6815994469571720559}
   - component: {fileID: 4797550909031479343}
   - component: {fileID: 7759176799603874931}
+  - component: {fileID: 267300677}
   m_Layer: 9
   m_Name: Bad Baby
   m_TagString: ATeam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5563244363503320516
 Transform:
   m_ObjectHideFlags: 0
@@ -123,7 +124,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3812333541974677670}
-  m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
   m_LocalPosition: {x: -1, y: 5, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -131,6 +132,7 @@ Transform:
   - {fileID: 8256969922078025827}
   - {fileID: 8256969923005403313}
   - {fileID: 3065407649582852028}
+  - {fileID: 2887492966114639112}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
@@ -148,7 +150,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &80657124189581494
 MonoBehaviour:
@@ -192,7 +194,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  currentHealth: 5
+  currentHealth: 10
+  init: {x: 0, y: 0, z: 0}
+  respawnEmitter: {fileID: 267300677}
 --- !u!136 &7759176799603874931
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -207,6 +211,29 @@ CapsuleCollider:
   m_Height: 0.7901997
   m_Direction: 1
   m_Center: {x: 0.02557987, y: 0.032053202, z: -9.588135e-10}
+--- !u!114 &267300677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3812333541974677670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Respawn
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4797550910244645496
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,6 +346,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7154419580247121929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2887492966114639112}
+  m_Layer: 9
+  m_Name: shield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2887492966114639112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7154419580247121929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5563244363503320516}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8256969922078025887
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,6 +388,7 @@ GameObject:
   - component: {fileID: 8256969922078025884}
   - component: {fileID: 8256969922078025886}
   - component: {fileID: 4797550908680252225}
+  - component: {fileID: 1590826995}
   m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -402,7 +460,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8256969922078025887}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &4797550908680252225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,6 +475,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time_: 0.2
   intensity_: 0.1
+--- !u!114 &1590826995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8256969922078025887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: -1
 --- !u!1 &8256969923005403314
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +500,9 @@ GameObject:
   - component: {fileID: 3362158305945881855}
   - component: {fileID: 8256969923005403312}
   - component: {fileID: 8243125480744538250}
-  - component: {fileID: 5153690191934112142}
+  - component: {fileID: 7798392521479245499}
+  - component: {fileID: 1066439766}
+  - component: {fileID: 1066439770}
   m_Layer: 9
   m_Name: gun_pivot
   m_TagString: ATeam
@@ -467,6 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolDown: 2
   template: {fileID: 3583810878614116701}
+  abilityUp: 1
   bullet: {fileID: 4930276351793053581, guid: 3e1dbd1915db61b42903aa3cf1491469, type: 3}
   spawnPoint: {fileID: 4797550910244645495}
   speedBullet: 2.3
@@ -497,112 +571,92 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actualBullets: 0
   cam: {fileID: 4797550908680252225}
-  spawn: {fileID: 4797550910244645495}
+  spawn: {fileID: 2887492966114639112}
   shot: {fileID: 6645397039167032936, guid: d871655d759488e4e956434db0136df6, type: 3}
   speed: 10
   cadence: 1
   reloadTime: 2
-  maxBullets: 1
+  maxBullets: 4
   rotateBullet: 1
+  reloading: 0
   distShield: 1.5
   speedRot: 10
   shield: {fileID: 5966256732893946591, guid: 1e04ff101eecffb4eb2dc4b743c86a0b, type: 3}
---- !u!82 &5153690191934112142
-AudioSource:
+  phase: 0
+  phaseSpeed: 20
+  shieldNotes: []
+  shieldGone: []
+--- !u!114 &7798392521479245499
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8256969923005403314}
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 49b1b2a3e40f4c849b92734986d2d27b, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Shooting
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Type
+    Value: 4
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1066439766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8256969923005403314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Abilities/ShootingAbilities
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1066439770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8256969923005403314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Reload
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8256969923080796540
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +913,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 315410291461635046, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
+      propertyPath: abilities
+      value: 
+      objectReference: {fileID: 3362158305945881855}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
 --- !u!4 &3065407649582852028 stripped

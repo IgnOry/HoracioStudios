@@ -8,11 +8,21 @@ public class DashCamomila : Abilities
     public Animator _animator;
     public float dashSpeed;
     public float dashTime;
-    
+
+    public float startTime;
+
+    public FMODUnity.StudioEventEmitter emitter;
 
     protected override void Start()
     {
         base.Start();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (startTime > 0 && Time.fixedTime >= startTime + dashTime)
+            EndDash();
     }
 
     protected override bool PrepareAbility()
@@ -37,13 +47,18 @@ public class DashCamomila : Abilities
         //gameObject.GetComponentInParent<basicMovement3D>().getAnimator().Play("dashing");
 
         gameObject.GetComponentInParent<Rigidbody>().velocity = new Vector3(x, gameObject.GetComponentInParent<Rigidbody>().velocity.y, z);
-        Invoke("EndDash", dashTime);
+
+        startTime = Time.fixedTime;
+
+        emitter.Play();
 
         return true;
     }
 
     protected void EndDash()
     {
+        startTime = -1;
+
         gameObject.GetComponentInParent<basicMovement3D>().getAnimator().ResetTrigger("dashing");
         gameObject.GetComponentInParent<basicMovement3D>().getAnimator().SetTrigger("stopDash");
         //gameObject.GetComponentInParent<Rigidbody>().velocity = new Vector3(0, 0, 0);

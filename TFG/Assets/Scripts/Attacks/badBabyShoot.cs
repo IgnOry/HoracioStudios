@@ -14,8 +14,6 @@ public class badBabyShoot : normalShoot
     public List<GameObject> shieldNotes;
     public List<GameObject> shieldGone;
 
-    private bool reloading = false;
-
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -41,7 +39,7 @@ public class badBabyShoot : normalShoot
     protected override void Shoot()
     {
         base.Shoot();
-
+        
         GameObject obj = shieldNotes[0];
 
         obj.SetActive(false);
@@ -50,14 +48,23 @@ public class badBabyShoot : normalShoot
         shieldNotes.RemoveAt(0);
 
         updateShield();
-        //createShield();
-        if (GetComponent<AudioSource>())
-            GetComponent<AudioSource>().Play();
     }
 
     //updates bullets that rotate around the player
     private void updateShield()
     {
+        for (int i = 0; i < shieldNotes.Count; i++)
+        {
+            GameObject obj = shieldNotes[i];
+
+            if (!obj.active)
+            {
+                shieldGone.Add(obj);
+                shieldNotes.Remove(obj);
+                i--;
+            }
+        }
+
         for (int i = 0; i < actualBullets; i++)
         {
             shieldNotes[i].transform.position = spawn.position + Rotate(new Vector3(1.0f, 0.0f, 1.0f), 360 * ((float)i / (float)actualBullets) + phase).normalized * distShield;
@@ -88,7 +95,7 @@ public class badBabyShoot : normalShoot
             GameObject obj = Instantiate(shield, spawn.position, Quaternion.identity);
             obj.transform.SetParent(spawn); //Set the bullets as a child from the spawn point
             obj.transform.localPosition = Vector3.zero;
-            obj.transform.Translate(Rotate(new Vector3(1.0f, 0.0f, 1.0f), 360 * ((float)i / (float)actualBullets)).normalized * distShield);
+            obj.transform.Translate(Rotate(new Vector3(1.0f, 0.0f, 1.0f), 360*((float)i/(float)actualBullets)).normalized*distShield);
             obj.layer = gameObject.layer;
 
             shieldNotes.Add(obj);
@@ -101,13 +108,12 @@ public class badBabyShoot : normalShoot
         if (!reloading && actualBullets > GameObject.FindGameObjectsWithTag("BBShield").Length)
         {
             actualBullets = GameObject.FindGameObjectsWithTag("BBShield").Length;
-            createShield();
+            //createShield();
         }
     }
 
     protected override void Reload()
     {
-        reloading = true;
         base.Reload();
         Invoke("resetShield", reloadTime);
     }
@@ -117,6 +123,13 @@ public class badBabyShoot : normalShoot
         actualBullets--;
         //resetShield();
         //createShield();
+
+        GameObject obj = shieldNotes[0];
+
+        obj.SetActive(false);
+
+        shieldGone.Add(obj);
+        shieldNotes.RemoveAt(0);
 
 
         updateShield();

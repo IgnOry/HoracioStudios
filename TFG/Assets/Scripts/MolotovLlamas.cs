@@ -11,10 +11,14 @@ public class MolotovLlamas : MonoBehaviour
     public float damagePerTick = 0.1f;
     string damageTag;
 
+    public FMODUnity.StudioEventEmitter emitter;
+
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<AudioSource>().Play();
+        setTag();
+        if (emitter)
+            emitter.Play();
     }
 
     // Update is called once per frame
@@ -23,7 +27,10 @@ public class MolotovLlamas : MonoBehaviour
         if (actualCD < despawnTime)
             actualCD += Time.deltaTime;
         else
+        {
+            emitter.SetParameter("FadeOut", 1);
             Destroy(this.gameObject);
+        }
     }
 
     void OnTriggerStay(Collider other)
@@ -36,8 +43,8 @@ public class MolotovLlamas : MonoBehaviour
         }
     }
 
-    public void setTag(string tag)
+    public void setTag()
     {
-        damageTag = tag == "ATeam" ? "BTeam" : "ATeam";
+        damageTag = (tag == "ATeam") ? "BTeam" : "ATeam";
     }
 }

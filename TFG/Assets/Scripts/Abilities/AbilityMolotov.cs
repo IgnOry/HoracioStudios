@@ -3,20 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilityMolotov : MonoBehaviour
+public class AbilityMolotov : Abilities
 {
     public GameObject molotov;
     public GameObject targetM;
     public float distance = 0;
-    public float coolDown;
 
     Vector3 mPos;
     Vector3 gPos;
 
-    private bool abilityUp = true;
-    private bool preparing_ = false;
-
     private GameObject target;
+
+    public FMODUnity.StudioEventEmitter emitter;
 
     // Update is called once per frame
     void Update()
@@ -38,13 +36,16 @@ public class AbilityMolotov : MonoBehaviour
 
     protected void UseAbility()
     {
-        GetComponent<AudioSource>().Play();
+        if (emitter)
+            emitter.Play();
+
         GameObject gun = gameObject.GetComponentInChildren<gunRotation>().gameObject;
 
         GameObject obj = Instantiate(molotov, gun.transform.position, transform.rotation);
         obj.layer = gameObject.layer;
         obj.GetComponent<Rigidbody>().velocity = target.transform.position - obj.transform.position;
         obj.GetComponent<Rigidbody>().velocity += new Vector3(0.0f, distance * 2, 0.0f);
+        obj.tag = tag;
 
         //Debug.Log(obj.GetComponent<Rigidbody>().velocity);
 

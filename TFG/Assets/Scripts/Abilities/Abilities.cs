@@ -7,8 +7,8 @@ public class Abilities : MonoBehaviour
     public float coolDown;
     public GameObject template;
 
-    private bool abilityUp = true;
-    private bool preparing_ = false;
+    public bool abilityUp = true;
+    protected bool preparing_ = false;
     private StateMachine states_;
 
     // Start is called before the first frame update
@@ -18,7 +18,7 @@ public class Abilities : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if(states_.GetState().state >= States.Charm)
         {
