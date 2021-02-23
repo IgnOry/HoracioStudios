@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4121506108468726437}
   - component: {fileID: 6217158252597445683}
   - component: {fileID: 852827681616809279}
+  - component: {fileID: 7312466235350165791}
   m_Layer: 0
   m_Name: CoctelMolotov
   m_TagString: Untagged
@@ -129,3 +130,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   llamas: {fileID: 2991703233934326088, guid: eb38af7e17b305a49b53ffce356bcfa5, type: 3}
   delay: 1
+  emitter: {fileID: 7312466235350165791}
+--- !u!114 &7312466235350165791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5329975276878110526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Abilities/Molotov Hit
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

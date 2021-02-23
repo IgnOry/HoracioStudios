@@ -8,6 +8,25 @@ public class AbilityBadBaby : Abilities
     public Transform spawnPoint;
     public float speedBullet;
 
+    protected FMODUnity.StudioEventEmitter emitter;
+
+    protected override void Start()
+    {
+        base.Start();
+
+        foreach (FMODUnity.StudioEventEmitter em in gameObject.GetComponents<FMODUnity.StudioEventEmitter>())
+        {
+            if (em.Event == "event:/Abilities/ShootingAbilities")
+            {
+                emitter = em;
+            }
+            else
+            {
+                //Debug.Log(em.Event);
+            }
+        }
+    }
+
     protected override bool PrepareAbility()
     {
         //View template
@@ -22,12 +41,13 @@ public class AbilityBadBaby : Abilities
         GameObject obj = Instantiate(bullet, spawnPoint.position, bullet.transform.rotation);
         gunRotation gunRot = GetComponent<gunRotation>();
         obj.GetComponent<Rigidbody>().velocity = gunRot.getGunDir() * speedBullet;
-        obj.layer = gameObject.layer;
+        obj.gameObject.layer = gameObject.layer;
 
         //Gets the distance from the Ability Template
         obj.GetComponent<BadBabySpecialBullet>().time_ = (template.transform.localScale.x / speedBullet)*2;
 
-        GetComponent<AudioSource>().Play();
+        if(emitter)
+            emitter.Play();
         //Set everything false
         base.UseAbility();
         template.SetActive(false);

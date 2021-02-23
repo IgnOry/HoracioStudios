@@ -7,16 +7,31 @@ public class health : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
 
+    public Vector3 init;
+
+    public FMODUnity.StudioEventEmitter respawnEmitter;
+
     void Start()
     {
         currentHealth = maxHealth;
+        init = transform.position;
     }
 
-    public void takeDamage(float dmg)
+    public virtual void takeDamage(float dmg)
     {
         currentHealth -= dmg;
         if (currentHealth <= 0)
-            Destroy(gameObject);
+        {
+            transform.position = init;
+
+            currentHealth = maxHealth;
+
+            if (respawnEmitter)
+                respawnEmitter.Play();
+
+            //Destroy(gameObject);
+
+        }
     }
 
     public float getCurrentHealth()

@@ -5,14 +5,14 @@ using UnityEngine;
 public class gunRotation : MonoBehaviour
 {
 
-    private Vector3 gunDir;
+    protected Vector3 gunDir;
     public SpriteRenderer _sprite;
 
-    private GameManager gm = null;
-    private StateMachine states; //States Machine from the character
+    protected GameManager gm = null;
+    protected StateMachine states; //States Machine from the character
 
 
-    private void Start()
+    protected virtual void Start()
     {
         states = GetComponentInParent<StateMachine>();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -30,7 +30,7 @@ public class gunRotation : MonoBehaviour
         }
     }
 
-    public void mouseAim()
+    public virtual void mouseAim()
     {
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 dir = Input.mousePosition - pos;
@@ -39,7 +39,7 @@ public class gunRotation : MonoBehaviour
             manageDir(dir);
     }
 
-    public bool controllerAim()
+    public virtual bool controllerAim()
     {
         bool ret = false;
 
@@ -55,7 +55,7 @@ public class gunRotation : MonoBehaviour
         return ret;
     }
 
-    public void manageDir(Vector3 dir)
+    public virtual void manageDir(Vector3 dir)
     {
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         

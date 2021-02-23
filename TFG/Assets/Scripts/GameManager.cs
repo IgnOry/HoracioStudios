@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        CursorController.instance.ActivateYellowCursor();
+        //CursorController.instance.ActivateYellowCursor();
     }
+
     void Update()
     {
         if (isControllerMode)

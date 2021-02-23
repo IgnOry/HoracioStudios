@@ -5,8 +5,8 @@ using UnityEngine;
 public class normalShoot : MonoBehaviour
 {
 
-    private float time_ = 0f;
-    private bool block_ = false;
+    public float time_ = 0f;
+    protected bool block_ = false;
 
     protected gunRotation gunRot;
 
@@ -21,34 +21,61 @@ public class normalShoot : MonoBehaviour
     public bool rotateBullet = true;
     //public float bulletTTL = 1f; //Time bullets live
 
-    private StateMachine states;
+    protected StateMachine states;
+
+    protected FMODUnity.StudioEventEmitter emitter;
+    protected FMODUnity.StudioEventEmitter reloadEmitter;
+
+    public bool reloading = false;
 
     protected virtual void Start()
     {
-        states = GetComponentInParent<StateMachine>();
+        states = gameObject.GetComponentInParent<StateMachine>();
         gunRot = gameObject.GetComponent<gunRotation>();
         actualBullets = maxBullets;
+
+        foreach (FMODUnity.StudioEventEmitter em in gameObject.GetComponents<FMODUnity.StudioEventEmitter>())
+        {
+            if(em.Event == "event:/Reload")
+            {
+                reloadEmitter = em;
+            }
+            else if (em.Event == "event:/Shooting")
+            {
+                emitter = em;
+            }
+            else
+            {
+                //Debug.Log(em.Event);
+            }
+        }
     }
 
     protected virtual void Update()
     {
-        if (!block_ && time_ <= 0f && actualBullets > 0 && (Input.GetAxis("Fire") != 0 || Input.GetAxis("Fire_Joy") != 0))
+        if (!reloading && !block_ && time_ <= 0f && actualBullets > 0 && (Input.GetAxis("Fire") != 0 || Input.GetAxis("Fire_Joy") != 0))
         {
-            if (states.GetState().state <= States.Root) {
+            if (states && states.GetState().state <= States.Root) {
                 Shoot();
                 cam.startShaking();
                 time_ = cadence;
             }
         }
-        else if (actualBullets <= 0)
+        else if (!reloading && actualBullets <= 0)
         {
             Reload();
-            if(GetComponent<GunReloadEffect>())
-                GetComponent<GunReloadEffect>().ChargeAnim(reloadTime);
         }
-        else
+        else if (time_ > 0f)
         {
             time_ -= Time.deltaTime;
+
+            if (reloading && time_ <= 0f)
+            {
+                actualBullets = maxBullets;
+                reloading = false;
+
+                reloadEmitter.Play();
+            }
         }
     }
 
@@ -70,18 +97,21 @@ public class normalShoot : MonoBehaviour
             obj.transform.rotation *= Quaternion.Euler(90, -90, 0);
         }
 
-        if(GetComponent<AudioSource>())
+        if(emitter)
         {
-            GetComponent<AudioSource>().Play();
+            emitter.Play();
         }
+
         obj.layer = gameObject.layer;
         actualBullets--;
     }
 
     protected virtual void Reload()
     {
-        actualBullets = maxBullets;
         time_ = reloadTime;
+        reloading = true;
+
+        reloadEmitter.Play();
     }
 
     protected Vector3 Rotate(Vector3 v, float degrees)

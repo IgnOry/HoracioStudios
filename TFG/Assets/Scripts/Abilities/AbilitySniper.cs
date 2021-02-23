@@ -13,22 +13,43 @@ public class AbilitySniper : Abilities
     private float camSize_;
     private normalShoot shootBehaviour_;
 
+    protected FMODUnity.StudioEventEmitter emitter;
+
     // Start is called before the first frame update
     protected override void Start()
     {
-        base.Start();
         camSize_ = cam_.orthographicSize;
-        shootBehaviour_ = GetComponent<normalShoot>();
+        shootBehaviour_ = gameObject.GetComponent<normalShoot>();
+
+        if (!shootBehaviour_)
+            Debug.Log("What the fucvk????");
+
+        foreach (FMODUnity.StudioEventEmitter em in gameObject.GetComponents<FMODUnity.StudioEventEmitter>())
+        {
+            if (em.Event == "event:/Abilities/ShootingAbilities")
+            {
+                emitter = em;
+            }
+            else
+            {
+                //Debug.Log(em.Event);
+            }
+        }
+
+        base.Start();
     }
 
     protected override bool PrepareAbility()
     {
-        //View template
-        base.PrepareAbility();
         shootBehaviour_.SetBlockShoot(true);
+
         template.SetActive(true);
 
         cam_.orthographicSize *= multiplier;
+
+        //View template
+        base.PrepareAbility();
+
         return true;
     }
 
@@ -38,14 +59,18 @@ public class AbilitySniper : Abilities
 
         //Shoot the bullet
         GameObject obj = Instantiate(bullet, spawnPoint.position, transform.rotation);
-        gunRotation gunRot = GetComponent<gunRotation>();
+        gunRotation gunRot = gameObject.GetComponent<gunRotation>();
         obj.GetComponent<Rigidbody>().velocity = gunRot.getGunDir() * speedBullet;
         obj.layer = gameObject.layer;
 
+        if (emitter)
+            emitter.Play();
 
         //Set everything false
         base.UseAbility();
+
         shootBehaviour_.SetBlockShoot(false);
+
         template.SetActive(false);
     }
 }

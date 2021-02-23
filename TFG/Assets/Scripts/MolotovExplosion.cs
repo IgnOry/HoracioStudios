@@ -9,6 +9,8 @@ public class MolotovExplosion : MonoBehaviour
 
     float Y = 0.0f;
 
+    public FMODUnity.StudioEventEmitter emitter;
+
     private void Awake()
     {
         Y = transform.position.y - 0.2f;
@@ -22,7 +24,13 @@ public class MolotovExplosion : MonoBehaviour
             Vector3 pos = transform.position;
             pos.y = Y;
 
-            Instantiate(llamas, pos, llamas.transform.rotation);
+            if (emitter)
+                emitter.Play();
+
+            GameObject obj = Instantiate(llamas, pos, llamas.transform.rotation);
+
+            obj.tag = tag;
+
             Destroy(this.gameObject);
 
             //Debug.Log(other.name);

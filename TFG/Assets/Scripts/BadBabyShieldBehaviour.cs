@@ -25,7 +25,7 @@ public class BadBabyShieldBehaviour : MonoBehaviour
         if (col)
         {
             other.gameObject.GetComponent<health>().kill();
-            Destroy(gameObject);//BBS.killShield(); //La idea va a ser tener un array en el script badbabyshoot con las bolas y llevar ahi la cuenta (preguntar el comportamiento exacto de esas bolas
+            gameObject.SetActive(false);//BBS.killShield(); //La idea va a ser tener un array en el script badbabyshoot con las bolas y llevar ahi la cuenta (preguntar el comportamiento exacto de esas bolas
                               //para saber si se prefiere que sean simetricas o que desaparezcan sin mas)
         }
     }

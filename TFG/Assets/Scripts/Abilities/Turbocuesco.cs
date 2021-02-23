@@ -8,10 +8,6 @@ public class Turbocuesco : MonoBehaviour
     float actualCD;
     string damageTag;
 
-    private void Start()
-    {
-        GetComponent<AudioSource>().Play();
-    }
     private void Update()
     {
         if (actualCD < despawnTime)
@@ -19,6 +15,7 @@ public class Turbocuesco : MonoBehaviour
         else
             Destroy(this.gameObject);
     }
+
     void OnTriggerStay(Collider other)
     {
         if(other.tag == damageTag)
