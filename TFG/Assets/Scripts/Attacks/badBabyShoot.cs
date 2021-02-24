@@ -64,10 +64,12 @@ public class badBabyShoot : normalShoot
                 i--;
             }
         }
-
-        for (int i = 0; i < actualBullets; i++)
+        if (!reloading)
         {
-            shieldNotes[i].transform.position = spawn.position + Rotate(new Vector3(1.0f, 0.0f, 1.0f), 360 * ((float)i / (float)actualBullets) + phase).normalized * distShield;
+            for (int i = 0; i < (int)actualBullets; i++)
+            {
+                shieldNotes[i].transform.position = spawn.position + Rotate(new Vector3(1.0f, 0.0f, 1.0f), 360 * ((float)i / (float)actualBullets) + phase).normalized * distShield;
+            }
         }
     }
 

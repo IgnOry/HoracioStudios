@@ -7,8 +7,8 @@ public class UICharacter : MonoBehaviour
 {
     public GameObject HealthBar;
     public GameObject AmmoBar;
-    public GameObject Reload;
-    public GameObject Ability;
+    public Image CapsuleEmpty;
+    public Image CapsuleLoaded;
     public FMODUnity.StudioEventEmitter emitter;
 
     public Abilities abilities;
@@ -24,9 +24,6 @@ public class UICharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //HealthBar = gameObject.transform.GetChild(0).GetChild(0).gameObject;
-        //AmmoBar = gameObject.transform.GetChild(1).GetChild(0).gameObject;
-        //Reload = gameObject.transform.GetChild(2).gameObject;
 
         if (emitter)
             emitter.Play();
@@ -53,21 +50,8 @@ public class UICharacter : MonoBehaviour
 
         emitter.SetParameter("Health", fillHealth * 100);
 
-        if (fillAmmo <= 0)
-        {
-            Reload.SetActive(true);
-            AmmoBar.transform.parent.gameObject.SetActive(false);
-        }
-        else
-        {
-            Reload.SetActive(false);
-            AmmoBar.transform.parent.gameObject.SetActive(true);
-        }
-
-        if (abilities.abilityUp)
-            Ability.SetActive(true);
-        else
-            Ability.SetActive(false);
+        CapsuleLoaded.gameObject.SetActive(abilities.abilityUp);
+        CapsuleEmpty.gameObject.SetActive(!abilities.abilityUp);
 
         if (fillHealth >= 0 && fillHealth <= 1)
             HealthBar.transform.localScale = new Vector3(fillHealth, HealthBar.transform.localScale.y, HealthBar.transform.localScale.z);

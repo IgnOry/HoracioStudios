@@ -10,14 +10,14 @@ public class normalShoot : MonoBehaviour
 
     protected gunRotation gunRot;
 
-    public int actualBullets;
+    public float actualBullets;
     public feedBackCam cam;
     public Transform spawn;
     public GameObject shot;
     public float speed = 1f;
     public float cadence = 1f;
     public float reloadTime = 1f; //Time it takes to reload
-    public int maxBullets = 1;
+    public float maxBullets = 1;
     public bool rotateBullet = true;
     //public float bulletTTL = 1f; //Time bullets live
 
@@ -44,10 +44,6 @@ public class normalShoot : MonoBehaviour
             {
                 emitter = em;
             }
-            else
-            {
-                //Debug.Log(em.Event);
-            }
         }
     }
 
@@ -68,13 +64,16 @@ public class normalShoot : MonoBehaviour
         else if (time_ > 0f)
         {
             time_ -= Time.deltaTime;
-
-            if (reloading && time_ <= 0f)
+            if (reloading)
             {
-                actualBullets = maxBullets;
-                reloading = false;
+                actualBullets += ((Time.deltaTime * maxBullets) / reloadTime);
+                if (time_ <= 0f)
+                {
+                    actualBullets = maxBullets;
+                    reloading = false;
 
-                reloadEmitter.Play();
+                    reloadEmitter.Play();
+                }
             }
         }
     }
@@ -126,12 +125,12 @@ public class normalShoot : MonoBehaviour
         return v.normalized;
     }
 
-    public int getCurrentBullets()
+    public float getCurrentBullets()
     {
         return actualBullets;
     }
 
-    public int getMaxBullets()
+    public float getMaxBullets()
     {
         return maxBullets;
     }

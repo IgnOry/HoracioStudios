@@ -442,6 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8237cfc121631d943ab1b8ea62e9864b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time_: 0
   actualBullets: 0
   cam: {fileID: 6438988084591276159}
   spawn: {fileID: 6438988084025709741}
@@ -786,6 +787,38 @@ PrefabInstance:
       propertyPath: abilities
       value: 
       objectReference: {fileID: 6438988083681697808}
+    - target: {fileID: 1234390077388635692, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440510470733312675, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440510470733312675, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512696642582146906, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571091500051570752, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732092383563581133, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732092383563581133, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077623338881829576, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7084349109732934479, guid: 4e440badf1ed0a446b115bc2b7078804, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
 --- !u!4 &1452725901244396545 stripped
