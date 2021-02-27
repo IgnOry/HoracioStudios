@@ -24,6 +24,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - id: 0
+  - m_Id: 51560845716893696
+    m_Localized: Play
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
     00000000:
