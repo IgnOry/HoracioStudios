@@ -7,8 +7,8 @@ public class UICharacter : MonoBehaviour
 {
     public GameObject HealthBar;
     public GameObject AmmoBar;
-    public Image CapsuleEmpty;
-    public Image CapsuleLoaded;
+    public Transform AbilityBar;
+    public GameObject AbilityReady;
     public FMODUnity.StudioEventEmitter emitter;
 
     public Abilities abilities;
@@ -20,6 +20,7 @@ public class UICharacter : MonoBehaviour
 
     float fillHealth;
     float fillAmmo;
+    float fillAbility;
 
     // Start is called before the first frame update
     void Start()
@@ -44,20 +45,22 @@ public class UICharacter : MonoBehaviour
 
         fillHealth = currentHealth / maxHealth;
         fillAmmo = currentAmmo / maxAmmo;
+        fillAbility = abilities.getCurrentCD() / abilities.coolDown;
 
         //Actualización de barras
         changeColorHealth(fillHealth);
 
         emitter.SetParameter("Health", fillHealth * 100);
 
-        CapsuleLoaded.gameObject.SetActive(abilities.abilityUp);
-        CapsuleEmpty.gameObject.SetActive(!abilities.abilityUp);
+        AbilityReady.SetActive(abilities.abilityUp);
 
         if (fillHealth >= 0 && fillHealth <= 1)
             HealthBar.transform.localScale = new Vector3(fillHealth, HealthBar.transform.localScale.y, HealthBar.transform.localScale.z);
 
         if (fillAmmo >= 0 && fillAmmo <= 1)
             AmmoBar.transform.localScale = new Vector3(fillAmmo, AmmoBar.transform.localScale.y, AmmoBar.transform.localScale.z);
+
+        AbilityBar.GetComponent<Image>().fillAmount = fillAbility;
     }
 
     void changeColorHealth(float fill_)

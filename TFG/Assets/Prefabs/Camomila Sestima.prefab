@@ -61,7 +61,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -398,7 +398,7 @@ MonoBehaviour:
   _gun: {fileID: 2901487884868273788}
   _animator: {fileID: 6833490210149968387}
   _sprite: {fileID: 774037700885684385}
-  speed: 10
+  speed: 7
   gm: {fileID: 0}
 --- !u!114 &5128296013643283580
 MonoBehaviour:
@@ -556,6 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e10f29025ca824448b62f96867dff2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time_: 0
   actualBullets: 0
   cam: {fileID: 4826876754035699026}
   spawn: {fileID: 7133277314833842950}
@@ -785,10 +786,19 @@ PrefabInstance:
       propertyPath: abilities
       value: 
       objectReference: {fileID: 1819938730}
+    - target: {fileID: 315410291461635046, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
+      propertyPath: AbilityReady
+      value: 
+      objectReference: {fileID: 6756358573615881791}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
 --- !u!4 &2562046343857357352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 315410291461635041, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
+  m_PrefabInstance: {fileID: 2877439996177316297}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6756358573615881791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8803921807278893046, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
   m_PrefabInstance: {fileID: 2877439996177316297}
   m_PrefabAsset: {fileID: 0}

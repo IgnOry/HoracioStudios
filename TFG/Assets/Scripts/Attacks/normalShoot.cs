@@ -57,7 +57,7 @@ public class normalShoot : MonoBehaviour
                 time_ = cadence;
             }
         }
-        else if (!reloading && actualBullets <= 0)
+        else if ((!reloading && actualBullets <= 0) || (!reloading && actualBullets > 0 && actualBullets < maxBullets && Input.GetKeyDown(KeyCode.R)))
         {
             Reload();
         }
@@ -107,7 +107,7 @@ public class normalShoot : MonoBehaviour
 
     protected virtual void Reload()
     {
-        time_ = reloadTime;
+        time_ = reloadTime * (maxBullets - actualBullets)/maxBullets;
         reloading = true;
 
         reloadEmitter.Play();

@@ -5,15 +5,19 @@ using UnityEngine;
 public class Abilities : MonoBehaviour
 {
     public float coolDown;
+    private float currentCD_;
     public GameObject template;
 
     public bool abilityUp = true;
     protected bool preparing_ = false;
     private StateMachine states_;
 
+    protected FMODUnity.StudioEventEmitter emitter;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        currentCD_ = coolDown;
         states_ = GetComponentInParent<StateMachine>();
     }
 
@@ -34,9 +38,19 @@ public class Abilities : MonoBehaviour
         if(preparing_ && (Input.GetAxis("FireAbility") == 0 /*|| Input.GetAxis("FireAbility_Joy") == 0*/))
         {
             UseAbility();
+            currentCD_ = 0.0f;
             abilityUp = false;
             preparing_ = false;
             Invoke("SetAbilityUp", coolDown); //Puede que se necesite el timer para dar el porcentaje
+        }
+
+        if(!preparing_ && !abilityUp)
+        {
+            if (currentCD_ < coolDown)
+                currentCD_ += Time.deltaTime;
+            else if (currentCD_ > coolDown)
+                currentCD_ = coolDown;
+            Debug.Log("CurrentCD: " + currentCD_);
         }
     }
 
@@ -56,5 +70,10 @@ public class Abilities : MonoBehaviour
     protected void SetAbilityUp()
     {
         abilityUp = true;
+    }
+
+    public float getCurrentCD()
+    {
+        return currentCD_;
     }
 }
