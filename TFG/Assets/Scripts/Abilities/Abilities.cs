@@ -5,7 +5,7 @@ using UnityEngine;
 public class Abilities : MonoBehaviour
 {
     public float coolDown;
-    private float currentCD_;
+    protected float currentCD_;
     public GameObject template;
 
     public bool abilityUp = true;
@@ -44,16 +44,20 @@ public class Abilities : MonoBehaviour
             Invoke("SetAbilityUp", coolDown); //Puede que se necesite el timer para dar el porcentaje
         }
 
-        if(!preparing_ && !abilityUp)
+        updateCD();
+    }
+
+    protected void updateCD()
+    {
+        if (!preparing_ && !abilityUp)
         {
             if (currentCD_ < coolDown)
                 currentCD_ += Time.deltaTime;
-            else if (currentCD_ > coolDown)
-                currentCD_ = coolDown;
-            Debug.Log("CurrentCD: " + currentCD_);
+            //Debug.Log("CurrentCD: " + currentCD_);
         }
+        else if (abilityUp)
+            currentCD_ = coolDown;
     }
-
     //Override this method
     protected virtual void UseAbility()
     {

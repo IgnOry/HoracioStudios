@@ -14,11 +14,11 @@ public class AbilityMolotov : Abilities
 
     private GameObject target;
 
-    public FMODUnity.StudioEventEmitter emitter;
 
     // Update is called once per frame
     void Update()
     {
+
         if (abilityUp && Input.GetMouseButton(1))
         {
             PrepareAbility();
@@ -29,9 +29,12 @@ public class AbilityMolotov : Abilities
         {
             UseAbility();
             abilityUp = false;
+            currentCD_ = 0.0f;
             preparing_ = false;
             Invoke("SetAbilityUp", coolDown); //Puede que se necesite el timer para dar el porcentaje
         }
+
+        updateCD();
     }
 
     protected void UseAbility()

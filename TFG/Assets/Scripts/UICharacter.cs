@@ -7,8 +7,8 @@ public class UICharacter : MonoBehaviour
 {
     public GameObject HealthBar;
     public GameObject AmmoBar;
-    public Transform AbilityBar;
-    public GameObject AbilityReady;
+    public SpriteRenderer AbilityBar;
+    public Sprite[] AbilityBarSprites;
     public FMODUnity.StudioEventEmitter emitter;
 
     public Abilities abilities;
@@ -52,15 +52,15 @@ public class UICharacter : MonoBehaviour
 
         emitter.SetParameter("Health", fillHealth * 100);
 
-        AbilityReady.SetActive(abilities.abilityUp);
-
         if (fillHealth >= 0 && fillHealth <= 1)
             HealthBar.transform.localScale = new Vector3(fillHealth, HealthBar.transform.localScale.y, HealthBar.transform.localScale.z);
 
         if (fillAmmo >= 0 && fillAmmo <= 1)
             AmmoBar.transform.localScale = new Vector3(fillAmmo, AmmoBar.transform.localScale.y, AmmoBar.transform.localScale.z);
-
-        AbilityBar.GetComponent<Image>().fillAmount = fillAbility;
+        Debug.Log("FillAbility: " + fillAbility);
+        Debug.Log("Actual sprite: " + (int)(fillAbility * 8));
+        
+        AbilityBar.sprite = AbilityBarSprites[(int)(fillAbility * 8)];
     }
 
     void changeColorHealth(float fill_)
