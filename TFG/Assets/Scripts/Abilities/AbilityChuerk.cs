@@ -7,6 +7,7 @@ public class AbilityChuerk : Abilities
     public GameObject cuesco;
     float gas = 0.4f;
     float cooldown = 0.04f;
+    float speed_;
 
 
     protected FMODUnity.StudioEventEmitter emitter;
@@ -17,6 +18,7 @@ public class AbilityChuerk : Abilities
     void Start()
     {
         emitter = gameObject.GetComponent<FMODUnity.StudioEventEmitter>();
+        speed_ = GetComponent<basicMovement3D>().speed;
     }
 
     public void FartOff()
@@ -38,7 +40,7 @@ public class AbilityChuerk : Abilities
         else
             abilityUp = true;
 
-        GetComponent<basicMovement3D>().speed = Input.GetMouseButton(1) && gas > 0.0f ? 15f : 10f;        
+        GetComponent<basicMovement3D>().speed = Input.GetMouseButton(1) && gas > 0.0f ? speed_ + 5f : speed_;        
 
         if (Input.GetMouseButton(1))
         {

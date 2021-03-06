@@ -8,7 +8,11 @@ public class UICharacter : MonoBehaviour
     public GameObject HealthBar;
     public GameObject AmmoBar;
     public SpriteRenderer AbilityBar;
+    public SpriteRenderer LifeBar;
+    public SpriteRenderer BalasBar;
     public Sprite[] AbilityBarSprites;
+    public Sprite[] AmmoBarSprites;
+    public Sprite[] LifeBarSprites;
     public FMODUnity.StudioEventEmitter emitter;
 
     public Abilities abilities;
@@ -59,7 +63,9 @@ public class UICharacter : MonoBehaviour
             AmmoBar.transform.localScale = new Vector3(fillAmmo, AmmoBar.transform.localScale.y, AmmoBar.transform.localScale.z);
         Debug.Log("FillAbility: " + fillAbility);
         Debug.Log("Actual sprite: " + (int)(fillAbility * 8));
-        
+
+        LifeBar.sprite = LifeBarSprites[(int)(fillHealth * 10)];
+        BalasBar.sprite = AmmoBarSprites[(int)(fillAmmo * 10)];
         AbilityBar.sprite = AbilityBarSprites[(int)(fillAbility * 8)];
     }
 
