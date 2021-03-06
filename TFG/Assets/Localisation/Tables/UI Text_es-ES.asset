@@ -62,7 +62,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51563168832827392
-    m_Localized: Info
+    m_Localized: "Informaci\xF3n"
     m_Metadata:
       m_Items: []
   - m_Id: 51563251196375040
@@ -112,6 +112,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 51563765745201152
     m_Localized: Castellano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54121630485852160
+    m_Localized: Practicar
     m_Metadata:
       m_Items: []
   references:
