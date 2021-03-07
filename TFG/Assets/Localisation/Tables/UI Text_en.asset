@@ -116,6 +116,14 @@ MonoBehaviour:
     m_Localized: "Practice\t"
     m_Metadata:
       m_Items: []
+  - m_Id: 54351528995467264
+    m_Localized: Character Selection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54351587011080192
+    m_Localized: GO
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
     00000000:
