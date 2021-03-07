@@ -588,7 +588,7 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1479,12 +1479,12 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: -8265470123240475145}
+  - {fileID: 2166698122044915169}
   MinDistance: 1
   MaxDistance: 20
   Length: 807
@@ -1767,6 +1767,23 @@ MonoBehaviour:
   Max: 8
   Default: 0
   Exists: 0
+--- !u!114 &-6276927275579282086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Health/Health
+  m_EditorClassIdentifier: 
+  Name: Health
+  Min: 0
+  Max: 100
+  Default: 100
+  Exists: 1
 --- !u!114 &-6268166392878808766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1921,12 +1938,12 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: -6509998166273191107}
+  - {fileID: -5605493810575605388}
   MinDistance: 1
   MaxDistance: 20
   Length: 198796
@@ -2170,6 +2187,23 @@ MonoBehaviour:
   Max: 2
   Default: 0
   Exists: 0
+--- !u!114 &-5605493810575605388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Chuerk/Health
+  m_EditorClassIdentifier: 
+  Name: Health
+  Min: 0
+  Max: 100
+  Default: 100
+  Exists: 1
 --- !u!114 &-5601628463242201088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2358,12 +2392,12 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -152606847653209867}
+  - {fileID: -6276927275579282086}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -2436,6 +2470,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-5050294098415325820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ShootingAbilities/AbilityType
+  m_EditorClassIdentifier: 
+  Name: AbilityType
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
 --- !u!114 &-4964498101450010178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3477,7 +3528,7 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3621,6 +3672,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &-2488685134386033865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Turrets/TurretType
+  m_EditorClassIdentifier: 
+  Name: TurretType
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
 --- !u!114 &-2390859138844046188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3690,7 +3758,7 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -4367,6 +4435,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-1128184486214232795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/badBaby/Bad Baby Bullets
+  m_EditorClassIdentifier: 
+  Name: Bad Baby Bullets
+  Min: 0
+  Max: 5
+  Default: 0
+  Exists: 1
 --- !u!114 &-1125050219678966481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4805,6 +4890,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-395125899125465785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ojocojo/Health
+  m_EditorClassIdentifier: 
+  Name: Health
+  Min: 0
+  Max: 100
+  Default: 100
+  Exists: 1
 --- !u!114 &-382944260680118662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4840,7 +4942,7 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -5182,7 +5284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 8422806048377395738}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   EditorEvents:
   - {fileID: 1545604427213235343}
   - {fileID: 5411261064512099673}
@@ -5204,10 +5306,10 @@ MonoBehaviour:
   - {fileID: 3126681463666828919}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   StringsBanks:
   - {fileID: 8422806048377395738}
-  stringsBankWriteTime: 637505426568217696
+  stringsBankWriteTime: 637490702367693881
   cacheVersion: 3
 --- !u!114 &16542349084107922
 MonoBehaviour:
@@ -5534,6 +5636,23 @@ MonoBehaviour:
   Max: 5
   Default: 0
   Exists: 0
+--- !u!114 &456546347954367507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Fire/FadeOut
+  m_EditorClassIdentifier: 
+  Name: FadeOut
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &560209092566498390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5797,12 +5916,12 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: -5169913898306963220}
+  - {fileID: -5050294098415325820}
   MinDistance: 1
   MaxDistance: 20
   Length: 550
@@ -6148,12 +6267,12 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: -8255333107130022199}
+  - {fileID: 8517983229417872820}
   MinDistance: 1
   MaxDistance: 20
   Length: 182520
@@ -6243,12 +6362,12 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: -2672610391649799650}
+  - {fileID: -2488685134386033865}
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
@@ -6510,6 +6629,23 @@ MonoBehaviour:
   Max: 100
   Default: 100
   Exists: 0
+--- !u!114 &2166698122044915169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Shooting/Type
+  m_EditorClassIdentifier: 
+  Name: Type
+  Min: 0
+  Max: 8
+  Default: 0
+  Exists: 1
 --- !u!114 &2181373564414353424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6997,7 +7133,7 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -7269,7 +7405,7 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -8029,12 +8165,12 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: -1651523432681936165}
+  - {fileID: 456546347954367507}
   MinDistance: 1
   MaxDistance: 20
   Length: 45000
@@ -8141,6 +8277,23 @@ MonoBehaviour:
   Max: 2
   Default: 0
   Exists: 0
+--- !u!114 &5577968947306447925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/McFly/Health
+  m_EditorClassIdentifier: 
+  Name: Health
+  Min: 0
+  Max: 100
+  Default: 100
+  Exists: 1
 --- !u!114 &5630800198712016002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8210,7 +8363,7 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -8629,12 +8782,12 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: -2694590814024842109}
+  - {fileID: -395125899125465785}
   MinDistance: 1
   MaxDistance: 20
   Length: 236161
@@ -8673,12 +8826,12 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: -1177544345480331816}
+  - {fileID: 5577968947306447925}
   MinDistance: 1
   MaxDistance: 20
   Length: 233332
@@ -8785,6 +8938,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &6435672494324996560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/badBaby/Health
+  m_EditorClassIdentifier: 
+  Name: Health
+  Min: 0
+  Max: 100
+  Default: 100
+  Exists: 1
 --- !u!114 &6535623519733454874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9604,6 +9774,23 @@ MonoBehaviour:
   Max: 8
   Default: 0
   Exists: 0
+--- !u!114 &7775222126558386728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Cuesco/IsFart
+  m_EditorClassIdentifier: 
+  Name: IsFart
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
 --- !u!114 &7793469232488836826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9674,12 +9861,12 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 3777877458681819831}
+  - {fileID: 7775222126558386728}
   MinDistance: 1
   MaxDistance: 20
   Length: 680
@@ -9921,6 +10108,24 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &8304053474920590851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637490702367663906
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &8317406570174486488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10054,7 +10259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/FMOD/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637505426568217696
+  lastModified: 637490702367693881
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -10105,6 +10310,23 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/Ojocojo/Health
+  m_EditorClassIdentifier: 
+  Name: Health
+  Min: 0
+  Max: 100
+  Default: 100
+  Exists: 1
+--- !u!114 &8517983229417872820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Camomila/Health
   m_EditorClassIdentifier: 
   Name: Health
   Min: 0
@@ -10393,13 +10615,13 @@ MonoBehaviour:
   - {fileID: 3883586757796308886}
   - {fileID: 1715137170967158256}
   - {fileID: -7326013052554181232}
-  - {fileID: 9218103929519777175}
+  - {fileID: 8304053474920590851}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 7066607178244306403}
-  - {fileID: 1651095876885707045}
+  - {fileID: 6435672494324996560}
+  - {fileID: -1128184486214232795}
   MinDistance: 1
   MaxDistance: 20
   Length: 102109

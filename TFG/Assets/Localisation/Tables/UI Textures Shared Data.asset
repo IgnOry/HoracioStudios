@@ -33,7 +33,6 @@ MonoBehaviour:
         - m_KeyId: 10867847168
           m_TableCodes:
           - en
-          - en-GB
           - es-ES
         m_TypeString: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null

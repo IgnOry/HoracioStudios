@@ -126,6 +126,22 @@ MonoBehaviour:
     m_Localized: GO
     m_Metadata:
       m_Items: []
+  - m_Id: 54394241946103808
+    m_Localized: Si
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54472677305757696
+    m_Localized: "L\xEDmite de FPS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54483055804821504
+    m_Localized: Sinc. Vertical
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54486363953049600
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
     00000000:

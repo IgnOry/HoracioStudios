@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
   m_DefaultGroup: 359675c63cd592c428a1c98ac6ac9c27
+  m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
+  m_BundleLocalCatalog: 0
   m_DisableCatalogUpdateOnStart: 0
   m_UniqueBundleIds: 0
+  m_maxConcurrentWebRequests: 500
+  m_ContiguousBundles: 0
   m_RemoteCatalogBuildPath:
     m_Id: 
   m_RemoteCatalogLoadPath:
@@ -29,7 +33,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1096dab279807ad4983610ae023bbfd3, type: 2}
   - {fileID: 11400000, guid: 74949d570880bdc4aa9dec69cfad8bda, type: 2}
   - {fileID: 11400000, guid: 16f43fb4455463d4fa2cec35caef3353, type: 2}
-  - {fileID: 11400000, guid: f3621db0462a0934da9874ab8fa49cd5, type: 2}
   - {fileID: 11400000, guid: 7382f2805ae51b246b95b8e645b2d62c, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
@@ -76,6 +79,7 @@ MonoBehaviour:
     - Locale-en
     - Locale-en-GB
     - Locale-es-ES
+    - Preload
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: c859391cb365f1c4ab745b9b7a99c811, type: 2}

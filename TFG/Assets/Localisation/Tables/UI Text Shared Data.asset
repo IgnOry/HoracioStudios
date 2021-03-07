@@ -119,6 +119,22 @@ MonoBehaviour:
     m_Key: GO
     m_Metadata:
       m_Items: []
+  - m_Id: 54394241946103808
+    m_Key: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54472677305757696
+    m_Key: FPS_Limit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54483055804821504
+    m_Key: VSync
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54486363953049600
+    m_Key: No
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
