@@ -36,7 +36,7 @@ public class badBabyShoot : normalShoot
         base.Update(); //Se esta llamando al reload mazo por algo, miralo anda, que pasan cosas raras
     }
 
-    protected override void Shoot()
+    public override void Shoot()
     {
         base.Shoot();
         

@@ -203,7 +203,6 @@ MonoBehaviour:
   molotov: {fileID: 5329975276878110526, guid: 3124c2a0c4c83ca4186d743d6cc631c8, type: 3}
   targetM: {fileID: 2879240273381059100, guid: ad4430fc2a368234db1cc4efb84666b9, type: 3}
   distance: 3
-  emitter: {fileID: 6996113358294349875}
 --- !u!136 &8112464081168929849
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -452,6 +451,8 @@ MonoBehaviour:
   reloadTime: 2
   maxBullets: 20
   rotateBullet: 1
+  innacuracy: 0
+  semiautomatic: 1
   reloading: 0
   shotAngle_: 25
   shotNum_: 5
@@ -794,7 +795,7 @@ PrefabInstance:
     - target: {fileID: 315410291461635046, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
       propertyPath: AbilityReady
       value: 
-      objectReference: {fileID: 2975675982133289593}
+      objectReference: {fileID: 0}
     - target: {fileID: 315410292344095547, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -840,10 +841,5 @@ PrefabInstance:
 --- !u!4 &1452725901244396545 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 315410291461635041, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
-  m_PrefabInstance: {fileID: 1173629154948337632}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2975675982133289593 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4107890845918408089, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
   m_PrefabInstance: {fileID: 1173629154948337632}
   m_PrefabAsset: {fileID: 0}

@@ -302,7 +302,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1197646a85def124390178435b2cd60a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f77a875cbea83564695b801a7a610458, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -327,7 +327,6 @@ GameObject:
   - component: {fileID: 3447021340926170843}
   - component: {fileID: 5128296013643283580}
   - component: {fileID: 2969260006885018445}
-  - component: {fileID: 1819938730}
   - component: {fileID: 1819938731}
   - component: {fileID: 1819938732}
   m_Layer: 9
@@ -430,26 +429,6 @@ CapsuleCollider:
   m_Height: 0.7901997
   m_Direction: 1
   m_Center: {x: 0.02557987, y: 0.032053202, z: -9.588135e-10}
---- !u!114 &1819938730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3095534150408803895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 901b1111e99138b419313593059b416c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coolDown: 1
-  template: {fileID: 0}
-  abilityUp: 1
-  _animator: {fileID: 0}
-  dashSpeed: 3
-  dashTime: 0.2
-  startTime: 0
-  emitter: {fileID: 1819938731}
 --- !u!114 &1819938731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +488,7 @@ GameObject:
   - component: {fileID: 4859041343472181661}
   - component: {fileID: 1662015422209883848}
   - component: {fileID: 756287511}
+  - component: {fileID: 2648446215906165841}
   m_Layer: 9
   m_Name: gun_pivot
   m_TagString: ATeam
@@ -564,8 +544,10 @@ MonoBehaviour:
   speed: 10
   cadence: 0.1
   reloadTime: 2
-  maxBullets: 25
+  maxBullets: 6
   rotateBullet: 1
+  innacuracy: 0
+  semiautomatic: 1
   reloading: 0
 --- !u!114 &1662015422209883848
 MonoBehaviour:
@@ -615,6 +597,28 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &2648446215906165841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4624386488461744629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 901b1111e99138b419313593059b416c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coolDown: 1
+  template: {fileID: 0}
+  abilityUp: 1
+  _animator: {fileID: 0}
+  dashSpeed: 15
+  dashTime: 0.2
+  startTime: 0
+  bullet: {fileID: 8306123816286157484, guid: 25f13c8583089b14f9dc99b1b166c948, type: 3}
+  spawnPoint: {fileID: 7133277314833842950}
+  emitter: {fileID: 1819938731}
 --- !u!1 &6576166819957125429
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,20 +789,15 @@ PrefabInstance:
     - target: {fileID: 315410291461635046, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
       propertyPath: abilities
       value: 
-      objectReference: {fileID: 1819938730}
+      objectReference: {fileID: 2648446215906165841}
     - target: {fileID: 315410291461635046, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
       propertyPath: AbilityReady
       value: 
-      objectReference: {fileID: 6756358573615881791}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
 --- !u!4 &2562046343857357352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 315410291461635041, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
-  m_PrefabInstance: {fileID: 2877439996177316297}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6756358573615881791 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8803921807278893046, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
   m_PrefabInstance: {fileID: 2877439996177316297}
   m_PrefabAsset: {fileID: 0}

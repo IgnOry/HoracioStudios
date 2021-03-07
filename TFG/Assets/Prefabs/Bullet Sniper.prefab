@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
+  emitter: {fileID: 0}
 --- !u!114 &4868492276033900352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +143,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   currentHealth: 1
+  init: {x: 0, y: 0, z: 0}
+  respawnEmitter: {fileID: 0}
+  bounces: 3
   time_: 1000
   ignore:
   - Bullet

@@ -61,8 +61,6 @@ public class UICharacter : MonoBehaviour
 
         if (fillAmmo >= 0 && fillAmmo <= 1)
             AmmoBar.transform.localScale = new Vector3(fillAmmo, AmmoBar.transform.localScale.y, AmmoBar.transform.localScale.z);
-        Debug.Log("FillAbility: " + fillAbility);
-        Debug.Log("Actual sprite: " + (int)(fillAbility * 8));
 
         LifeBar.sprite = LifeBarSprites[(int)(fillHealth * 10)];
         BalasBar.sprite = AmmoBarSprites[(int)(fillAmmo * 10)];

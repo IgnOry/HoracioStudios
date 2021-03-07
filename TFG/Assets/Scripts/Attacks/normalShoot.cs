@@ -19,6 +19,8 @@ public class normalShoot : MonoBehaviour
     public float reloadTime = 1f; //Time it takes to reload
     public float maxBullets = 1;
     public bool rotateBullet = true;
+    public float innacuracy = 0.0f;
+    public bool semiautomatic = false;
     //public float bulletTTL = 1f; //Time bullets live
 
     protected StateMachine states;
@@ -27,6 +29,8 @@ public class normalShoot : MonoBehaviour
     protected FMODUnity.StudioEventEmitter reloadEmitter;
 
     public bool reloading = false;
+
+    bool semiautoomaticTrigger_ = false;
 
     protected virtual void Start()
     {
@@ -49,12 +53,18 @@ public class normalShoot : MonoBehaviour
 
     protected virtual void Update()
     {
+        if(Input.GetAxis("Fire") == 0 && Input.GetAxis("Fire_Joy") == 0 && semiautomatic)
+        {
+            semiautoomaticTrigger_ = false;
+        }
         if (!reloading && !block_ && time_ <= 0f && actualBullets > 0 && (Input.GetAxis("Fire") != 0 || Input.GetAxis("Fire_Joy") != 0))
         {
-            if (states && states.GetState().state <= States.Root) {
+            if (states && states.GetState().state <= States.Root && !semiautoomaticTrigger_) {
                 Shoot();
                 cam.startShaking();
                 time_ = cadence;
+                if (semiautomatic)
+                    semiautoomaticTrigger_ = true;
             }
         }
         else if ((!reloading && actualBullets <= 0) || (!reloading && actualBullets > 0 && actualBullets < maxBullets && Input.GetKeyDown(KeyCode.R)))
@@ -79,7 +89,7 @@ public class normalShoot : MonoBehaviour
     }
 
     //This is a virtual method and will be different for each character
-    protected virtual void Shoot()
+    public virtual void Shoot()
     {
         GameObject obj;
         if (rotateBullet)
@@ -87,7 +97,7 @@ public class normalShoot : MonoBehaviour
         else
             obj = Instantiate(shot, spawn.position, Quaternion.identity);
         
-        obj.GetComponent<Rigidbody>().velocity = gunRot.getGunDir() * speed;
+        obj.GetComponent<Rigidbody>().velocity = (gunRot.getGunDir() + Random.insideUnitSphere * innacuracy) * speed;
 
         //fixes rotation so bullet looks in the direction it's shot
         if (rotateBullet)

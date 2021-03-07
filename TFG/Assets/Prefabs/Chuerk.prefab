@@ -100,6 +100,7 @@ MonoBehaviour:
   reloadTime: 2
   maxBullets: 10
   rotateBullet: 1
+  innacuracy: 0.12
   reloading: 0
 --- !u!114 &308196714861423461
 MonoBehaviour:
@@ -785,16 +786,11 @@ PrefabInstance:
     - target: {fileID: 315410291461635046, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
       propertyPath: AbilityReady
       value: 
-      objectReference: {fileID: 7088493990574473327}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
 --- !u!4 &2022745678946507896 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 315410291461635041, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
-  m_PrefabInstance: {fileID: 1761667797957650329}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7088493990574473327 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8803921807278893046, guid: 93f9f40454d7f094cb96858dc66b350d, type: 3}
   m_PrefabInstance: {fileID: 1761667797957650329}
   m_PrefabAsset: {fileID: 0}

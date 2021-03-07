@@ -18,7 +18,7 @@ public class turretShoot : normalShoot
         Shoot();
     }
 
-    protected override void Shoot()
+    public override void Shoot()
     {
         base.Shoot();
         actualBullets = maxBullets;

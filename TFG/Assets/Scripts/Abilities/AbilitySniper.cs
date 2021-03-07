@@ -67,7 +67,8 @@ public class AbilitySniper : Abilities
     {
         if (charged)
         {
-            cam_.orthographicSize = camSize_;
+            StartCoroutine(resizeRoutine(cam_.orthographicSize, 3.5f, 1));
+            //cam_.orthographicSize = camSize_;
 
             //Shoot the bullet
             GameObject obj = Instantiate(bullet, spawnPoint.position, transform.rotation);
@@ -84,7 +85,6 @@ public class AbilitySniper : Abilities
             shootBehaviour_.SetBlockShoot(false);
 
             template.SetActive(false);
-            charged = false;
             bob.speed *= 2;
         }
     }
@@ -103,6 +103,6 @@ public class AbilitySniper : Abilities
 
         yield return null;
         Debug.Log("Charged");
-        charged = true;
+        charged = !charged;
     }
 }

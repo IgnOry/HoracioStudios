@@ -11,11 +11,21 @@ public class DashCamomila : Abilities
 
     public float startTime;
 
+    public GameObject bullet;
+    public Transform spawnPoint;
+
     public FMODUnity.StudioEventEmitter emitter;
+
+    basicMovement3D move_;
+    gunRotation gr_;
+    normalShoot ns_;
 
     protected override void Start()
     {
         base.Start();
+        move_ = GetComponentInParent<basicMovement3D>();
+        gr_ = GetComponent<gunRotation>();
+        ns_ = GetComponent<normalShoot>();
     }
 
     protected override void Update()
@@ -27,31 +37,38 @@ public class DashCamomila : Abilities
 
     protected override bool PrepareAbility()
     {
-        if (!gameObject.GetComponentInParent<basicMovement3D>().getAnimator().GetBool("moving"))
+        if (!move_.getAnimator().GetBool("moving"))
             return false;
 
-        float x = gameObject.GetComponentInParent<basicMovement3D>().getMoveX();
-        float z = gameObject.GetComponentInParent<basicMovement3D>().getMoveZ();
+        float x = move_.getMoveX();
+        float z = move_.getMoveZ();
 
-        gameObject.GetComponentInParent<basicMovement3D>().enabled = false;
+        move_.enabled = false;
         //Use ability turbio
 
         x *= dashSpeed;
         z *= dashSpeed;
 
-        bool spriteFlip = gameObject.GetComponentInParent<basicMovement3D>().getSpriteFlip();
+        bool spriteFlip = move_.getSpriteFlip();
 
-        gameObject.GetComponentInParent<basicMovement3D>().getAnimator().SetBool("backwards", (x > 0f && spriteFlip) || (x <= 0f && !spriteFlip));
-        gameObject.GetComponentInParent<basicMovement3D>().getAnimator().ResetTrigger("stopDash");
-        gameObject.GetComponentInParent<basicMovement3D>().getAnimator().SetTrigger("dashing");
+        move_.getAnimator().SetBool("backwards", (x > 0f && spriteFlip) || (x <= 0f && !spriteFlip));
+        move_.getAnimator().ResetTrigger("stopDash");
+        move_.getAnimator().SetTrigger("dashing");
         //gameObject.GetComponentInParent<basicMovement3D>().getAnimator().Play("dashing");
 
-        gameObject.GetComponentInParent<Rigidbody>().velocity = new Vector3(x, gameObject.GetComponentInParent<Rigidbody>().velocity.y, z);
+        gameObject.GetComponentInParent<Rigidbody>().velocity = new Vector3(x, gameObject.GetComponentInParent<Rigidbody>().velocity.y, z).normalized * dashSpeed;
 
         startTime = Time.fixedTime;
 
         emitter.Play();
 
+        float f = ns_.actualBullets;
+        ns_.innacuracy = 0.4f;
+        for (int i = 0; i < f; i++)
+        {
+            ns_.Shoot();
+        }
+        ns_.innacuracy = 0.0f;
         return true;
     }
 
