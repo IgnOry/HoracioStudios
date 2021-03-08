@@ -62,13 +62,6 @@ public class DashCamomila : Abilities
 
         emitter.Play();
 
-        float f = ns_.actualBullets;
-        ns_.innacuracy = 0.4f;
-        for (int i = 0; i < f; i++)
-        {
-            ns_.Shoot();
-        }
-        ns_.innacuracy = 0.0f;
         return true;
     }
 
@@ -80,5 +73,13 @@ public class DashCamomila : Abilities
         gameObject.GetComponentInParent<basicMovement3D>().getAnimator().SetTrigger("stopDash");
         //gameObject.GetComponentInParent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         gameObject.GetComponentInParent<basicMovement3D>().enabled = true;
+
+        float f = ns_.actualBullets;
+        ns_.innacuracy = 0.25f;
+        for (int i = 0; i < f; i++)
+        {
+            ns_.Shoot();
+        }
+        ns_.innacuracy = 0.0f;
     }
 }

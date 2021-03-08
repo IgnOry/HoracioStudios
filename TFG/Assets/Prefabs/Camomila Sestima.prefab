@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 901b1111e99138b419313593059b416c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolDown: 1
+  coolDown: 2.5
   template: {fileID: 0}
   abilityUp: 1
   _animator: {fileID: 0}

@@ -449,13 +449,13 @@ MonoBehaviour:
   speed: 10
   cadence: 0.5
   reloadTime: 2
-  maxBullets: 20
+  maxBullets: 9
   rotateBullet: 1
   innacuracy: 0
   semiautomatic: 1
   reloading: 0
-  shotAngle_: 25
-  shotNum_: 5
+  shotAngle_: 15
+  shotNum_: 3
 --- !u!114 &3048637089813351388
 MonoBehaviour:
   m_ObjectHideFlags: 0
