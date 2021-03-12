@@ -68,13 +68,18 @@ function newPoints(player, rivals, results){
 
     console.log("Sum: ", sum);
     console.log("D: ", d);
-    console.log((q/(1/(newRD**2) + 1/d)) * sum);
 
     var add = ((q/(1/(newRD**2) + 1/d)) * sum);
     //Actualizar valores del jugador
     var poi = (player.points + add);
+
+    console.log("Sin sumar: ", add, " typeof: ", typeof(add));
+    console.log("Player Points: ", player.points, " typeof: ", typeof(player.points));
+    console.log("Tras sumar: ", poi, " typeof: ", typeof(poi));
+
     return [poi, newRD];
 }
+
 function prediction(RD1, RD2, r1, r2){
     let elevateG = -g(Math.sqrt(RD1**2 + RD2**2))*(r1-r2)/400;
     return 1/(1+10**elevateG);
@@ -134,3 +139,4 @@ console.log(results);
 values = newPoints(dataFile[playerID], rivals, results);
 console.log("New Points: ", values[0]);
 console.log("New Deviation: ", values[1]);
+
