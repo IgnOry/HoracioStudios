@@ -1,0 +1,7 @@
+C:\Users\josel\Desktop\uni\4\TFG\HoracioStudios\ServerMatchmaking\PruebaClienteC#\PruebaCliente\bin\Debug\PruebaCliente.exe.config
+C:\Users\josel\Desktop\uni\4\TFG\HoracioStudios\ServerMatchmaking\PruebaClienteC#\PruebaCliente\bin\Debug\PruebaCliente.exe
+C:\Users\josel\Desktop\uni\4\TFG\HoracioStudios\ServerMatchmaking\PruebaClienteC#\PruebaCliente\bin\Debug\PruebaCliente.pdb
+C:\Users\josel\Desktop\uni\4\TFG\HoracioStudios\ServerMatchmaking\PruebaClienteC#\PruebaCliente\obj\Debug\PruebaCliente.csprojAssemblyReference.cache
+C:\Users\josel\Desktop\uni\4\TFG\HoracioStudios\ServerMatchmaking\PruebaClienteC#\PruebaCliente\obj\Debug\PruebaCliente.csproj.CoreCompileInputs.cache
+C:\Users\josel\Desktop\uni\4\TFG\HoracioStudios\ServerMatchmaking\PruebaClienteC#\PruebaCliente\obj\Debug\PruebaCliente.exe
+C:\Users\josel\Desktop\uni\4\TFG\HoracioStudios\ServerMatchmaking\PruebaClienteC#\PruebaCliente\obj\Debug\PruebaCliente.pdb
