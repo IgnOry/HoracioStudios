@@ -5,11 +5,37 @@ const { MongoClient } = require("mongodb");
 //const uri = "mongodb+srv://<user>:<password>@<cluster-url>?retryWrites=true&writeConcern=majority";
 const uri = "mongodb://localhost:27017?retryWrites=true&writeConcern=majority";
 
+const databaseName = "tefege";
+const playerCollection = "players";
+const dataCollection = "data";
+
 const DEBUGLOG = true;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //FUNCIONES INDEPENDIENTES DEL JUEGO: estas funciones son 100% independientes del juego, se puede aplicar a otros juegos
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+async function logUpdate()
+{
+    let client = new MongoClient(uri);
+
+    try {
+        await client.connect();
+
+        var database = client.db(databaseName);
+        var collection = database.collection(dataCollection);
+
+        // busca el id exacto del jugador
+        var options = {
+            upsert: true
+        };
+
+        var player = await collection.updateOne({}, { $push: { dateLog: (new Date()).toTimeString() } }, options);
+
+      } finally {
+        await client.close();
+      }
+}
 
 //devuelve el documento del jugador con ID especificado
 async function findPlayer(playerID)
@@ -19,8 +45,8 @@ async function findPlayer(playerID)
     try {
         await client.connect();
 
-        var database = client.db("tefege");
-        var collection = database.collection("players");
+        var database = client.db(databaseName);
+        var collection = database.collection(playerCollection);
 
         // busca el id exacto del jugador
         var query = { id: playerID };
@@ -50,8 +76,8 @@ async function findPlayersInRange(min, max)
     try {
         await client.connect();
 
-        var database = client.db("tefege");
-        var collection = database.collection("players");
+        var database = client.db(databaseName);
+        var collection = database.collection(playerCollection);
 
         // busca todos los que tengan (rating >= min && rating <= max)
         var query = { rating: { $lte : max, $gte : min } };
@@ -86,8 +112,8 @@ async function updatePlayerRating(playerID, newRatingJSON)
     try {
         await client.connect();
 
-        var database = client.db("tefege");
-        var collection = database.collection("players");
+        var database = client.db(databaseName);
+        var collection = database.collection(playerCollection);
 
         // busca el id exacto del jugador
         var filter = { id: playerID };
@@ -117,8 +143,8 @@ async function wipePlayerPending(playerID)
     try {
         await client.connect();
 
-        var database = client.db("tefege");
-        var collection = database.collection("players");
+        var database = client.db(databaseName);
+        var collection = database.collection(playerCollection);
 
         // busca el id exacto del jugador
         var filter = { id: playerID };
@@ -156,8 +182,8 @@ async function wipeAllPending()
     try {
         await client.connect();
 
-        var database = client.db("tefege");
-        var collection = database.collection("players");
+        var database = client.db(databaseName);
+        var collection = database.collection(playerCollection);
 
         // busca el id exacto del jugador
         var filter = { pending: { $exists: true, $not: { $size: 0 } } };
@@ -192,8 +218,8 @@ async function addPlayer(playerID, defaultParametersJSON, playerInfoJSON)
     try {
         await client.connect();
 
-        var database = client.db("tefege");
-        var collection = database.collection("players");
+        var database = client.db(databaseName);
+        var collection = database.collection(playerCollection);
 
         //creamos el documento
         var doc = playerInfoJSON;
@@ -222,8 +248,8 @@ async function isNickAvailable(playerNick)
     try {
         await client.connect();
 
-        var database = client.db("tefege");
-        var collection = database.collection("players");
+        var database = client.db(databaseName);
+        var collection = database.collection(playerCollection);
 
         // busca el id exacto del jugador
         var query = { nick: playerNick };
@@ -252,8 +278,8 @@ async function getAllPlayers()
     try {
         await client.connect();
 
-        var database = client.db("tefege");
-        var collection = database.collection("players");
+        var database = client.db(databaseName);
+        var collection = database.collection(playerCollection);
 
         var players = await collection.find({}, {});
 
@@ -274,8 +300,8 @@ async function getPlayersWithPending()
     try {
         await client.connect();
 
-        var database = client.db("tefege");
-        var collection = database.collection("players");
+        var database = client.db(databaseName);
+        var collection = database.collection(playerCollection);
 
         var query = { pending: { $exists: true, $not: { $size: 0 } } };
 
@@ -298,8 +324,8 @@ async function getPlayersWithHistory()
     try {
         await client.connect();
 
-        var database = client.db("tefege");
-        var collection = database.collection("players");
+        var database = client.db(databaseName);
+        var collection = database.collection(playerCollection);
 
         var query = { history: { $exists: true, $not: { $size: 0 } } };
 
@@ -322,8 +348,8 @@ async function getAllPlayerIDs()
     try {
         await client.connect();
 
-        var database = client.db("tefege");
-        var collection = database.collection("players");
+        var database = client.db(databaseName);
+        var collection = database.collection(playerCollection);
 
         var players = await collection.find({}, { projection: { _id: false, id: true } });
 
@@ -345,8 +371,8 @@ async function getPlayerIDsWithPending()
     try {
         await client.connect();
 
-        var database = client.db("tefege");
-        var collection = database.collection("players");
+        var database = client.db(databaseName);
+        var collection = database.collection(playerCollection);
 
         var query = { pending: { $exists: true, $not: { $size: 0 } } };
 
@@ -370,8 +396,8 @@ async function getPlayerIDsWithHistory()
     try {
         await client.connect();
 
-        var database = client.db("tefege");
-        var collection = database.collection("players");
+        var database = client.db(databaseName);
+        var collection = database.collection(playerCollection);
 
         var query = { history: { $exists: true, $not: { $size: 0 } } };
 
@@ -426,8 +452,8 @@ async function updatePlayerResults(playerID, gameResults)
             });
         }
 
-        var database = client.db("tefege");
-        var collection = database.collection("players");
+        var database = client.db(databaseName);
+        var collection = database.collection(playerCollection);
 
         // busca el id exacto del jugador
         var filter = { id: playerID };
@@ -458,8 +484,8 @@ async function wipePlayerData(playerID, defaultRating, defaultRD) {
     try {
         await client.connect();
 
-        var database = client.db("tefege");
-        var collection = database.collection("players");
+        var database = client.db(databaseName);
+        var collection = database.collection(playerCollection);
 
         // busca el id exacto del jugador
         var filter = { id: playerID };
@@ -485,6 +511,8 @@ async function wipePlayerData(playerID, defaultRating, defaultRD) {
 }
 
 //ver cómo hacer el update (aquí o en el server?)
+
+//logUpdate();
 
 /**
 async function test()

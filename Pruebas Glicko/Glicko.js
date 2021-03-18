@@ -139,4 +139,3 @@ console.log(results);
 values = newPoints(dataFile[playerID], rivals, results);
 console.log("New Points: ", values[0]);
 console.log("New Deviation: ", values[1]);
-
