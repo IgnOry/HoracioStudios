@@ -120,9 +120,11 @@ async function start()
 {
     //await importJSONGrossi();
 
-    await test(5, 10);
+    //await test(5, 10);
 
-    await update();
+    //await update();
+
+    await MongoJS.logUpdate();
     //setInterval(update, 1000);
 }
 

@@ -4,8 +4,9 @@ using MongoDB.Driver.Builders;
 
 public class DatabaseAccess : MonoBehaviour
 {
-    private const string MONGO_URI = "mongodb+srv://dbUser:grossigrossi@cluster0.brkuz.mongodb.net/grossi?retryWrites=true&w=majority";
-    private const string DATABASE_NAME = "test";
+    private const string MONGO_URI = "mongodb://dbUser:grossigrossi@cositas-shard-00-02.tkmov.mongodb.net:27017/test";
+    private const string DATABASE_NAME = "grossi";
+    private const string COLLECTION_NAME = "test";
 
     private MongoClient client_;
     private MongoServer server_;
@@ -35,9 +36,9 @@ public class DatabaseAccess : MonoBehaviour
             if(data[1] != null)
             {
                 query = Query.And(
-            Query<Model_Account>.EQ(u => u.nick, data[0]),
-            Query<Model_Account>.EQ(u => u.discriminator, data[1]),
-            Query<Model_Account>.EQ(u => u.shaPassword, pass));
+                            Query<Model_Account>.EQ(u => u.nick, data[0]),
+                            Query<Model_Account>.EQ(u => u.discriminator, data[1]),
+                            Query<Model_Account>.EQ(u => u.shaPassword, pass));
 
                 myAccount = accounts.FindOne(query);
             }
@@ -51,7 +52,7 @@ public class DatabaseAccess : MonoBehaviour
         {
             //We found the account, let's go in
             myAccount.activeConnection = cnnId;
-            myAccount.Token = token;
+            myAccount.token = token;
 
             //update de la database de mongo
             accounts.Update(query, Update<Model_Account>.Replace(myAccount));
@@ -65,6 +66,7 @@ public class DatabaseAccess : MonoBehaviour
         return myAccount;
 
     }
+
     public void Init()
     {
         client_ = new MongoClient(MONGO_URI);
@@ -72,7 +74,7 @@ public class DatabaseAccess : MonoBehaviour
         db_ = client_.GetServer().GetDatabase(DATABASE_NAME);
 
         //Initialize collections
-        accounts = db_.GetCollection<Model_Account>("account");
+        accounts = db_.GetCollection<Model_Account>(COLLECTION_NAME);
 
         Debug.Log("Database initialized");
     }

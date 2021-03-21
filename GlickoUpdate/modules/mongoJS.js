@@ -30,7 +30,7 @@ async function logUpdate()
             upsert: true
         };
 
-        var player = await collection.updateOne({}, { $push: { dateLog: (new Date()).toTimeString() } }, options);
+        var player = await collection.updateOne({}, { $push: { dateLog: (new Date()).toString() } }, options);
 
       } finally {
         await client.close();
@@ -452,7 +452,7 @@ async function getUserCount()
 //FUNCIONES DEPENDIENTES DEL JUEGO: estas funciones son 100% dependientes del juego, lo que hagan estas no se puede aplicar a otros juegos
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const using_round_results = true;
+const using_round_results = false;
 
 //añade el array gameResults al array pending del jugador con id playerID, esta función depende del 
 async function updatePlayerResults(playerID, gameResults)
@@ -549,7 +549,7 @@ async function wipePlayerData(playerID, defaultRating, defaultRD) {
 
 //logUpdate();
 
-/**
+/*
 async function test()
 {
     try
