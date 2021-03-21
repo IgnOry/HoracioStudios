@@ -10,6 +10,9 @@ public class CharacterSelection : MonoBehaviour
 
     private void Start()
     {
+
+
+
         children = toRotate.gameObject.transform.childCount; //Por si se añadieran más personajes en el futuro
         degrees = 360.0f/children;
     }
