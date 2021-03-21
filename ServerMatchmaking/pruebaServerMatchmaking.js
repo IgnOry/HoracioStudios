@@ -27,6 +27,20 @@ server.post('/prueba/post', (req, res) => {
   return res.send(req.body);
 })
 
+server.post('/login', (req, res) => {
+  console.log(`Se hizo login`);
+  var respuesta = req.body;
+  console.log(req.body);
+  return res.send("1");
+})
+
+server.post('/startQueue', (req, res) => {
+  console.log(`Se hizo login`);
+  var respuesta = req.body;
+  console.log(req.body);
+  return res.send("1");
+})
+
 server.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

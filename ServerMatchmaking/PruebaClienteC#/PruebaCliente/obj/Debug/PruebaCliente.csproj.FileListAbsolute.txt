@@ -5,3 +5,6 @@ C:\Users\josel\Desktop\uni\4\TFG\HoracioStudios\ServerMatchmaking\PruebaClienteC
 C:\Users\josel\Desktop\uni\4\TFG\HoracioStudios\ServerMatchmaking\PruebaClienteC#\PruebaCliente\obj\Debug\PruebaCliente.csproj.CoreCompileInputs.cache
 C:\Users\josel\Desktop\uni\4\TFG\HoracioStudios\ServerMatchmaking\PruebaClienteC#\PruebaCliente\obj\Debug\PruebaCliente.exe
 C:\Users\josel\Desktop\uni\4\TFG\HoracioStudios\ServerMatchmaking\PruebaClienteC#\PruebaCliente\obj\Debug\PruebaCliente.pdb
+C:\Users\josel\Desktop\uni\4\TFG\HoracioStudios\ServerMatchmaking\PruebaClienteC#\PruebaCliente\bin\Debug\Newtonsoft.Json.dll
+C:\Users\josel\Desktop\uni\4\TFG\HoracioStudios\ServerMatchmaking\PruebaClienteC#\PruebaCliente\bin\Debug\Newtonsoft.Json.xml
+C:\Users\josel\Desktop\uni\4\TFG\HoracioStudios\ServerMatchmaking\PruebaClienteC#\PruebaCliente\obj\Debug\PruebaCliente.csproj.CopyComplete

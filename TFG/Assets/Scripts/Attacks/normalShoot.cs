@@ -49,6 +49,7 @@ public class normalShoot : MonoBehaviour
                 emitter = em;
             }
         }
+
     }
 
     protected virtual void Update()
