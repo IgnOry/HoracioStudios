@@ -4,16 +4,6 @@ const server = express();
 server.use(express.json())
 const port = 25565;
 
-var cont = 0;
-// Rest C# 
-// /start empieza a buscar emparejamiento 
-// log in 
-// crear cuenta
-// 
-server.get('/start', (req, res) => {
-  cont+=1;
-  return res.send(cont.toString());
-})
 
 server.get('/prueba/get', (req, res) => {
   console.log(`Se hizo get`);
@@ -45,6 +35,7 @@ server.post('/signin', (req, res) => {
   return res.send("1");
 })
 
+
 server.post('/login', (req, res) => {
   var username = req.body.username;
   var password = req.body.password;
@@ -52,12 +43,15 @@ server.post('/login', (req, res) => {
 
   // Devuelve el id del jugador o un 
   // codigo de error (numeros negativos)
+  // Errores: contraseña incorrecta
   return res.send("1");
 })
 
 server.post('/startQueue', (req, res) => {
   var id = req.body.id;
   console.log(`Player ${id} is looking for a game`);
+
+
   
   // Respuesta al jugador
   return res.send("1");
@@ -66,6 +60,8 @@ server.post('/startQueue', (req, res) => {
 server.post('/cancelQueue', (req, res) => {
   var id = req.body.id;
   console.log(`Player ${id} canceled the queue`);
+
+
   
   // Respuesta al jugador
   return res.send("1");
